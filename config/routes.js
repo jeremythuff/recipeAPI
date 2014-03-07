@@ -36,7 +36,9 @@ module.exports.routes = {
     view: 'home/index'
   },
 
-  '/recipes/:name': 'RecipeController.getRecipeByName'
+  '/recipe/:name': 'RecipesController.getRecipeByName',
+
+  '/recipes/updateAll': 'RecipesController.updateRecipes'
 
   /*
   // But what if you want your home page to display

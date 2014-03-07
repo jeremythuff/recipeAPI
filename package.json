@@ -1,21 +1,22 @@
 {
-    "name": "sailsTest",
+    "name": "recipeAPI",
     "private": true,
     "version": "0.0.0",
-    "description": "a Sails application",
+    "description": "7 Days to Die Craft Recipe API",
     "dependencies": {
         "sails": "0.9.11",
         "grunt": "0.4.1",
         "sails-disk": "~0.9.0",
         "ejs": "0.8.4",
-        "optimist": "0.3.4"
+        "optimist": "0.3.4",
+        "xml2js": "*"
     },
     "scripts": {
         "start": "node app.js",
         "debug": "node debug app.js"
     },
     "main": "app.js",
-    "repository": "",
-    "author": "",
+    "repository": "https://github.com/jeremythuff/recipeAPI",
+    "author": "Jeremy Huff",
     "license": ""
 }
