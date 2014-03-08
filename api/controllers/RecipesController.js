@@ -42,7 +42,15 @@ module.exports = {
         parseXML.parseString(data, function (err, result) {
             var recipes = result.recipes.recipe;
             for(i=0;i<recipes.length;i++) {
-              var recipe = recipes[i]['$'];
+              var recipe = recipes[i]['$'],
+                  ingredientsOriginal = recipes[i]['ingredient'],
+                  ingredients = {};
+
+                  for(i=0;i<ingredientsOriginal.length;i++) {
+                    ingredients['name'] = ingredientsOriginal[i]['name'],
+                    ingredients['count'] = ingredientsOriginal[i]['count'],
+                    ingredients['grid'] = ingredientsOriginal[i]['grid'];
+                  }
               
               Recipes.create({
                 "name": recipe.name,
@@ -51,6 +59,7 @@ module.exports = {
                 "craft_area": recipe.craft_area,
                 "craft_tool": recipe.craft_tool,
                 "craft_time": recipe.craft_time,
+                "ingredients": ingredients
               }).done(function(err, user) {
                 if (err) {
                   return console.log(err);
@@ -67,6 +76,34 @@ module.exports = {
         });
     });
   },
+  clearRecipes: function (req, res) {
+    Recipes.find()
+    .exec(function(err, recipes) {
+      if(recipes.length == 0) {
+        console.log("Query returned no results :(")
+        return res.send("Failure!");
+      }
+      if(err){
+        console.log(err)
+        return res.send("Failure!");
+      }
+      else {
+        for(i=0;i<recipes.length;i++) {
+          var id = recipes[i]["id"];
+          Recipes.findOne(id).done(function(err, recipe) {
+            if(err) console.log("Unable to destroy record :(");
+            // destroy the record
+            recipe.destroy(function(err) {
+              console.log(recipe.name + " has been destroyed!")
+            });
+
+          });
+        }
+        return res.send("Success!");
+      }
+    });    
+  },
+
 
 
 
