@@ -36,7 +36,7 @@ var Recipe = {
 			defaultsTo: null
 		},
 		ingredients:  {
-			type: "JSON",
+			type: "ARRAY",
 			defaultsTo: {}
 		}
 	}

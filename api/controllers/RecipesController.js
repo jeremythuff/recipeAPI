@@ -36,21 +36,56 @@ module.exports = {
   },
 
   updateRecipes: function (req, res) {
+    ModelService.clearAll(Recipes);
     fs.readFile("assets/data/recipes.xml", function(err, data) {
         console.log(err, data);
         
         parseXML.parseString(data, function (err, result) {
             var recipes = result.recipes.recipe;
             for(i=0;i<recipes.length;i++) {
+              
               var recipe = recipes[i]['$'],
                   ingredientsOriginal = recipes[i]['ingredient'],
-                  ingredients = {};
+                  ingredients = [];
+                  if(typeof(ingredientsOriginal)==='undefined')ingredientsOriginal={};
+                  
+              for(n=0;n<ingredientsOriginal.length;n++) {
+                var ingredient = {};
+                ingredient['name'] = ingredientsOriginal[n]['$']['name'];
+                ingredient['count'] = ingredientsOriginal[n]['$']['count'];
 
-                  for(i=0;i<ingredientsOriginal.length;i++) {
-                    ingredients['name'] = ingredientsOriginal[i]['name'],
-                    ingredients['count'] = ingredientsOriginal[i]['count'],
-                    ingredients['grid'] = ingredientsOriginal[i]['grid'];
+                var gridPos = ingredientsOriginal[n]['$']['grid'];
+                if (typeof(gridPos)!='undefined') {
+                  var gridPosArray = gridPos.split(",");
+                  ingredient['grid'] = {}; 
+                  ingredient['grid']['x'] = gridPosArray[0].replace(" ", "");
+                  ingredient['grid']['y'] = gridPosArray[1].replace(" ", "");
+                }
+                
+                Ingredient.findOne({ name: ingredient.name }, function(err, result) {
+                  if(typeof(result)==='undefined') {
+                    Ingredient.create(ingredient)
+                    .done(function(err, user) {
+                      if (err) {
+                        console.log(err);
+                      } else {
+                        console.log(ingredient.name + " was added to the Ingredients");
+                      }
+                    });
+                  } else {
+                    console.log(ingredient.name + " already exists");
                   }
+                });
+
+                Ingredient.findOne({ name: ingredient.name }, function(err, result) {
+                  if (err) {
+                    console.log(err);
+                  } else {
+                    ingredients.push(result);  
+                  }
+                });
+                
+              }
               
               Recipes.create({
                 "name": recipe.name,
@@ -72,7 +107,7 @@ module.exports = {
             } 
               
             console.log('Done');
-            return res.send(recipes);
+            return res.send("Success!");
         });
     });
   },
@@ -99,10 +134,12 @@ module.exports = {
 
           });
         }
+        console.log('Done');
         return res.send("Success!");
       }
     });    
   },
+  
 
 
 
