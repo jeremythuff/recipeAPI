@@ -11,7 +11,8 @@ module.exports = {
   attributes: {
   	
   	name: 'STRING',
-  	uri: 'STRING'
+  	uri: 'STRING',
+  	usedIn: 'JSON'
   	    
   }
 

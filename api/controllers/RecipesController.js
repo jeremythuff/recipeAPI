@@ -25,14 +25,14 @@ module.exports = {
   
   /**
    * Action blueprints:
-   *    `/recipe/getRecipeByName`
+   *    `/recipe/[name]`
    */
-   getRecipeByName: function (req,res) {
-      if(req.param('name')=='create') return RecipeController.create;
-      Recipes.find().where({name: req.param('name')}).exec(function(err, recipe) {
-        if (err) return res.send(err,500);
-        return res.json(recipe);
-      });
+  getRecipeByName: function (req,res) {
+    if(req.param('name')=='create') return RecipeController.create;
+    Recipes.find().where({name: req.param('name')}).exec(function(err, recipe) {
+      if (err) return res.send(err,500);
+      return res.json(recipe);
+    });
   },
 
   updateRecipes: function (req, res) {
@@ -53,18 +53,22 @@ module.exports = {
                 var ingredient = {};
                 ingredient['name'] = ingredientsOriginal[n]['$']['name'];
                 ingredient['count'] = ingredientsOriginal[n]['$']['count'];
+                ingredient['usedIn'] = [];
 
                 var gridPos = ingredientsOriginal[n]['$']['grid'];
                 if (typeof(gridPos)!='undefined') {
+                  var usedIn = {};
                   var gridPosArray = gridPos.split(",");
-                  ingredient['grid'] = {}; 
-                  ingredient['grid']['x'] = gridPosArray[0].replace(" ", "");
-                  ingredient['grid']['y'] = gridPosArray[1].replace(" ", "");
+                  usedIn['grid'] = {};
+                  usedIn['grid']['name'] = recipe.name; 
+                  usedIn['grid']['x'] = gridPosArray[0].replace(" ", "");
+                  usedIn['grid']['y'] = gridPosArray[1].replace(" ", "");
+                  ingredient['usedIn'].push(usedIn);
                 }
                 
-                Ingredient.findOne({ name: ingredient.name }, function(err, result) {
+                Ingredients.findOne({ name: ingredient.name }, function(err, result) {
                   if(typeof(result)==='undefined') {
-                    Ingredient.create(ingredient)
+                    Ingredients.create(ingredient)
                     .done(function(err, user) {
                       if (err) {
                         console.log(err);
@@ -77,7 +81,7 @@ module.exports = {
                   }
                 });
 
-                Ingredient.findOne({ name: ingredient.name }, function(err, result) {
+                Ingredients.findOne({ name: ingredient.name }, function(err, result) {
                   if (err) {
                     console.log(err);
                   } else {
@@ -111,40 +115,11 @@ module.exports = {
         });
     });
   },
-  clearRecipes: function (req, res) {
-    Recipes.find()
-    .exec(function(err, recipes) {
-      if(recipes.length == 0) {
-        console.log("Query returned no results :(")
-        return res.send("Failure!");
-      }
-      if(err){
-        console.log(err)
-        return res.send("Failure!");
-      }
-      else {
-        for(i=0;i<recipes.length;i++) {
-          var id = recipes[i]["id"];
-          Recipes.findOne(id).done(function(err, recipe) {
-            if(err) console.log("Unable to destroy record :(");
-            // destroy the record
-            recipe.destroy(function(err) {
-              console.log(recipe.name + " has been destroyed!")
-            });
 
-          });
-        }
-        console.log('Done');
-        return res.send("Success!");
-      }
-    });    
+  clearRecipes: function (req, res) {
+    ModelService.clearAll(Recipes);
   },
   
-
-
-
-
-
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to RecipeController)

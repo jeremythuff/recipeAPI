@@ -17,33 +17,15 @@
 
 module.exports = {
     
-    clearIngredients: function (req, res) {
-	    Ingredient.find()
-	    .exec(function(err, ingredient) {
-	      if(ingredient.length == 0) {
-	        console.log("Query returned no results :(")
-	        return res.send("Failure!");
-	      }
-	      if(err){
-	        console.log(err)
-	        return res.send("Failure!");
-	      }
-	      else {
-	        for(i=0;i<ingredient.length;i++) {
-	          var id = ingredient[i]["id"];
-	          Ingredient.findOne(id).done(function(err, ingredient) {
-	            if(err) console.log("Unable to destroy record :(");
-	            // destroy the record
-	            ingredient.destroy(function(err) {
-	              console.log(ingredient.name + " has been destroyed!")
-	            });
+    getIngredientByName: function (req,res) {
+	    Ingredients.find().where({name: req.param('name')}).exec(function(err, ingredient) {
+	      if (err) return res.send(err,500);
+	      return res.json(ingredient);
+	    });
+	},
 
-	          });
-	        }
-	        console.log('Done');
-	        return res.send("Success!");
-	      }
-	    });    
+    clearIngredients: function (req, res) {
+	   ModelService.clearAll(Ingredients);
 	},
   
 

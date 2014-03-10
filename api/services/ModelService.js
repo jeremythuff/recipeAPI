@@ -8,11 +8,10 @@ exports.clearAll = function(model) {
       }
       if(err){
         console.log(err)
-      }
-      else {
+      } else {
         for(i=0;i<result.length;i++) {
           var id = result[i]["id"];
-          Recipes.findOne(id).done(function(err, obj) {
+          model.findOne(id).done(function(err, obj) {
             if(err) console.log("Unable to destroy record :(");
             // destroy the record
             obj.destroy(function(err) {
