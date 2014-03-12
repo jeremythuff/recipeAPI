@@ -37,7 +37,7 @@ var Recipe = {
 		},
 		ingredients:  {
 			type: "ARRAY",
-			defaultsTo: {}
+			defaultsTo: []
 		}
 	}
 }

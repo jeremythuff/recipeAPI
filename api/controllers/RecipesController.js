@@ -28,18 +28,18 @@ module.exports = {
    *    `/recipe/[name]`
    */
   getRecipeByName: function (req,res) {
-    if(req.param('name')=='create') return RecipeController.create;
-    Recipes.find().where({name: req.param('name')}).exec(function(err, recipe) {
-      if (err) return res.send(err,500);
-      return res.json(recipe);
-    });
+      return ModelService.findByName(req,res,Recipes);
+  },
+
+  search: function(req, res) {
+    return res.json(ModelService.searchByName(req,res,Recipes));
   },
 
   updateRecipes: function (req, res) {
     ModelService.clearAll(Recipes);
+    ModelService.clearAll(Ingredients);
     fs.readFile("assets/data/recipes.xml", function(err, data) {
         console.log(err, data);
-        
         parseXML.parseString(data, function (err, result) {
             var recipes = result.recipes.recipe;
             for(i=0;i<recipes.length;i++) {
@@ -51,19 +51,22 @@ module.exports = {
                   
               for(n=0;n<ingredientsOriginal.length;n++) {
                 var ingredient = {};
+                var ingredientForRecipe = {};
                 ingredient['name'] = ingredientsOriginal[n]['$']['name'];
-                ingredient['count'] = ingredientsOriginal[n]['$']['count'];
+                ingredientForRecipe['name'] = ingredient['name'].replace(/([A-Z])/g, ' $1');
+                ingredient['nameForSearch'] = ingredient['name'];//spilt on capitals 
+                ingredientForRecipe['count'] = ingredientsOriginal[n]['$']['count'];
+                ingredient['uri'] = "/ingredient/"+ingredient['name'];
+                ingredientForRecipe['uri'] = ingredient['uri'];
                 ingredient['usedIn'] = [];
+                ingredient.usedIn.push(recipe.name);
+                ingredientForRecipe['grid'] = {};
 
                 var gridPos = ingredientsOriginal[n]['$']['grid'];
                 if (typeof(gridPos)!='undefined') {
-                  var usedIn = {};
                   var gridPosArray = gridPos.split(",");
-                  usedIn['grid'] = {};
-                  usedIn['grid']['name'] = recipe.name; 
-                  usedIn['grid']['x'] = gridPosArray[0].replace(" ", "");
-                  usedIn['grid']['y'] = gridPosArray[1].replace(" ", "");
-                  ingredient['usedIn'].push(usedIn);
+                  ingredientForRecipe['grid']['x'] = gridPosArray[0].replace(" ", "");
+                  ingredientForRecipe['grid']['y'] = gridPosArray[1].replace(" ", "");
                 }
                 
                 Ingredients.findOne({ name: ingredient.name }, function(err, result) {
@@ -77,22 +80,31 @@ module.exports = {
                       }
                     });
                   } else {
-                    console.log(ingredient.name + " already exists");
+                    Ingredients.findOne({name: ingredient.name}, function(err, results) {
+                      if (err) {
+                        console.log(err);
+                      } else {
+                        if(results['usedIn'].indexOf(recipe.name)===-1) {
+                          results['usedIn'].push(recipe.name);
+                          results.save(function(err) {
+                            if (err) {
+                              console.log(err);
+                            } else {
+                              console.log(ingredient.name + " was udated.");
+                            }
+                          });
+                        }
+                      }
+                    });
                   }
                 });
 
-                Ingredients.findOne({ name: ingredient.name }, function(err, result) {
-                  if (err) {
-                    console.log(err);
-                  } else {
-                    ingredients.push(result);  
-                  }
-                });
-                
+                ingredients.push(ingredientForRecipe);
               }
               
               Recipes.create({
                 "name": recipe.name,
+                "nameForSearch": recipe.name.replace(/([A-Z])/g, ' $1'),
                 "count": recipe.count,
                 "scrapable": recipe.scrapable === "True" ? true : false,
                 "craft_area": recipe.craft_area,

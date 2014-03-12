@@ -18,14 +18,15 @@
 module.exports = {
     
     getIngredientByName: function (req,res) {
-	    Ingredients.find().where({name: req.param('name')}).exec(function(err, ingredient) {
-	      if (err) return res.send(err,500);
-	      return res.json(ingredient);
-	    });
+	    return ModelService.findByName(req,res,Ingredients);
 	},
 
     clearIngredients: function (req, res) {
 	   ModelService.clearAll(Ingredients);
+	},
+
+	search: function(req, res) {
+		return res.json(ModelService.searchByName(req,res,Ingredients));
 	},
   
 

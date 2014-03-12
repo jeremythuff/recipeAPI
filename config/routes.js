@@ -42,6 +42,14 @@ module.exports.routes = {
 
   '/ingredient/:name': 'IngredientsController.getIngredientByName',
 
+  '/recipe/:name/json': 'RecipesController.getRecipeByName',
+
+  '/ingredient/:name/:JSONorXML': 'IngredientsController.getIngredientByName',
+
+  '/ingredients/:JSONorXML/search': 'IngredientsController.search',
+
+  '/recipes/:JSONorXML/search': 'RecipesController.search',
+
   /*
   // But what if you want your home page to display
   // a signup form located at `views/user/signup.ejs`?

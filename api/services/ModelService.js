@@ -1,4 +1,10 @@
 // ModelService.js - in api/services
+
+var fs = require('fs'),
+    xml2js = require('xml2js'),
+    parseXML = new xml2js.Parser();
+
+
 exports.clearAll = function(model) {
 
 	model.find()
@@ -23,4 +29,37 @@ exports.clearAll = function(model) {
         console.log('Done');
       }
     });
+};
+
+// ModelService.js - in api/services
+exports.findByName = function(req, res, model) {
+  model.find().where({name: req.param('name')}).exec(function(err, obj) {
+    if (err) return res.send(err,500);
+    return res.json(obj);
+  });
+};
+
+// ModelService.js - in api/services
+exports.searchByName = function(req, res, model) {
+  var JSONorXML = req.params['JSONorXML'];
+  var results = [];
+  var searchTerms = Object.keys(req.query);
+  for(i=0;i<searchTerms.length;i++) {
+    model.find({
+      nameForSearch: {
+        contains: searchTerms[i]
+      } 
+    }, function(err, result) {
+      results.push(result);
+    });
+  }
+  
+  if(JSONorXML === "xml") {
+    var result = "Convert to "+req.params['JSONorXML'];
+    console.log(result);
+    return res.send(result); 
+  }
+
+  return results[0]; 
+
 };

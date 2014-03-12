@@ -12,8 +12,10 @@ module.exports = {
   	
   	name: 'STRING',
   	uri: 'STRING',
-  	usedIn: 'JSON'
-  	    
+  	usedIn: {
+  		type: 'ARRAY',
+		defaultsTo: []
+  	}
   }
 
 };
