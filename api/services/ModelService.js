@@ -57,7 +57,7 @@ exports.searchByName = function(req, res, model) {
   if(JSONorXML === "xml") {
     var result = "Convert to "+req.params['JSONorXML'];
     console.log(result);
-    return res.send(result); 
+    //return res.send(result); 
   }
 
   return results[0]; 

@@ -35,6 +35,10 @@ module.exports = {
     return res.json(ModelService.searchByName(req,res,Recipes));
   },
 
+  fullModel: function(req, res) {
+    return res.json(Recipes);
+  },
+
   updateRecipes: function (req, res) {
     ModelService.clearAll(Recipes);
     ModelService.clearAll(Ingredients);

@@ -36,19 +36,23 @@ module.exports.routes = {
     view: 'home/index'
   },
 
-  '/recipe/:name': 'RecipesController.getRecipeByName',
+  '/recipe/:name': 'RecipesController.getRecipeByName', // return view
 
-  '/recipes/updateAll': 'RecipesController.updateRecipes',
+  '/recipes/updateAll': 'RecipesController.updateRecipes', // return view
 
   '/ingredient/:name': 'IngredientsController.getIngredientByName',
 
-  '/recipe/:name/json': 'RecipesController.getRecipeByName',
+  '/:JSONorXML/recipes': '/recipes/fullModel',
 
-  '/ingredient/:name/:JSONorXML': 'IngredientsController.getIngredientByName',
+  '/:JSONorXML/ingredients': '/ingredients',
+  
+  '/:JSONorXML/recipe/:name': 'RecipesController.getRecipeByName',
 
-  '/ingredients/:JSONorXML/search': 'IngredientsController.search',
+  '/:JSONorXML/ingredient/:name/': 'IngredientsController.getIngredientByName',
 
-  '/recipes/:JSONorXML/search': 'RecipesController.search',
+  '/:JSONorXML/ingredients/search': 'IngredientsController.search',
+
+  '/:JSONorXML/recipes/search': 'RecipesController.search',
 
   /*
   // But what if you want your home page to display
