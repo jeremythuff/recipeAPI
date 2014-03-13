@@ -28,7 +28,10 @@ module.exports = {
 	search: function(req, res) {
 		return res.json(ModelService.searchByName(req,res,Ingredients));
 	},
-  
+  	
+  	fullModel: function(req, res) {
+		return res.json(Recipes);
+	},
 
 
   /**

@@ -42,9 +42,9 @@ module.exports.routes = {
 
   '/ingredient/:name': 'IngredientsController.getIngredientByName',
 
-  '/:JSONorXML/recipes': '/recipes/fullModel',
+  '/:JSONorXML/recipes': 'RecipesController.fullModel',
 
-  '/:JSONorXML/ingredients': '/ingredients',
+  '/:JSONorXML/ingredients': 'IngredientsController.fullModel',
   
   '/:JSONorXML/recipe/:name': 'RecipesController.getRecipeByName',
 
