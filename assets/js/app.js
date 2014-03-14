@@ -69,3 +69,13 @@
   window.io
 
 );
+
+$(document).ready(function() {
+  
+  socket.get("/json/recipes", function (response) { 
+    $(response).each(function() {
+      console.log(this);
+    }); 
+  });
+
+});

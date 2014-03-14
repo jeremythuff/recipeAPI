@@ -1,2 +1,2 @@
-# sailsTest
+# 7dtd recipeAPI
 ### a Sails application

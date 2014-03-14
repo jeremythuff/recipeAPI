@@ -40,8 +40,6 @@ module.exports.routes = {
 
   '/recipes/updateAll': 'RecipesController.updateRecipes', // return view
 
-  '/ingredient/:name': 'IngredientsController.getIngredientByName',
-
   '/:JSONorXML/recipes': {
       controller    : 'recipesController',
       action        : 'indexDATA'

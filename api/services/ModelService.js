@@ -116,10 +116,6 @@ exports.searchByNameDATA = function(req, res, model) {
 // ModelService.js - in api/services
 exports.indexModel = function(req, res, model) {
   return res.view();
-  // model.find().done(function(err, response) {
-  //   if (err) return res.send(err,500);
-  //   return res.view();
-  // });
 };
 
 // ModelService.js - in api/services
