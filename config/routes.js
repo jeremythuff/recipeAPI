@@ -42,17 +42,35 @@ module.exports.routes = {
 
   '/ingredient/:name': 'IngredientsController.getIngredientByName',
 
-  '/:JSONorXML/recipes': 'RecipesController.fullModel',
-
-  '/:JSONorXML/ingredients': 'IngredientsController.fullModel',
+  '/:JSONorXML/recipes': {
+      controller    : 'recipesController',
+      action        : 'indexDATA'
+  },
   
-  '/:JSONorXML/recipe/:name': 'RecipesController.getRecipeByName',
+  '/:JSONorXML/recipe/:name': {
+      controller    : 'recipesController',
+      action        : 'getRecipeByNameDATA'
+  },
 
-  '/:JSONorXML/ingredient/:name/': 'IngredientsController.getIngredientByName',
+  '/:JSONorXML/recipes/search': {
+      controller    : 'recipesController',
+      action        : 'searchDATA'
+  },
 
-  '/:JSONorXML/ingredients/search': 'IngredientsController.search',
+  '/:JSONorXML/ingredients': {
+      controller    : 'ingredientsController',
+      action        : 'indexDATA'
+  },
 
-  '/:JSONorXML/recipes/search': 'RecipesController.search',
+  '/:JSONorXML/ingredient/:name': {
+      controller    : 'ingredientsController',
+      action        : 'getIngredientByNameDATA'
+  },
+
+  '/:JSONorXML/ingredients/search': {
+      controller    : 'ingredientsController',
+      action        : 'searchDATA'
+  },
 
   /*
   // But what if you want your home page to display

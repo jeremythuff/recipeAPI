@@ -21,16 +21,28 @@ module.exports = {
 	    return ModelService.findByName(req,res,Ingredients);
 	},
 
+	getIngredientByNameDATA: function (req,res) {
+	    return ModelService.findByNameDATA(req,res,Ingredients);
+	},
+
     clearIngredients: function (req, res) {
 	   ModelService.clearAll(Ingredients);
 	},
 
 	search: function(req, res) {
-		return res.json(ModelService.searchByName(req,res,Ingredients));
+		return ModelService.searchByName(req,res,Ingredients);
+	},
+
+	searchDATA: function(req, res) {
+		return ModelService.searchByNameDATA(req,res,Ingredients);
 	},
   	
-  	fullModel: function(req, res) {
-		return res.json(Recipes);
+	index: function(req, res) {
+		return ModelService.indexModel(req, res, Ingredients);
+	},
+
+  	indexDATA: function(req, res) {
+		return ModelService.fullModelDATA(req, res, Ingredients);
 	},
 
 

@@ -28,15 +28,27 @@ module.exports = {
    *    `/recipe/[name]`
    */
   getRecipeByName: function (req,res) {
-      return ModelService.findByName(req,res,Recipes);
+    return ModelService.findByName(req,res,Recipes);
+  },
+
+  getRecipeByNameDATA: function (req,res) {
+    return ModelService.findByNameDATA(req,res,Recipes);
   },
 
   search: function(req, res) {
-    return res.json(ModelService.searchByName(req,res,Recipes));
+    return ModelService.searchByName(req,res,Recipes);
   },
 
-  fullModel: function(req, res) {
-    return res.json(Recipes);
+  searchDATA: function(req, res) {
+    return ModelService.searchByNameDATA(req,res,Recipes);
+  },
+
+  index: function(req, res) {
+    return ModelService.indexModel(req, res, Recipes);
+  },
+
+  indexDATA: function(req, res) {
+    return ModelService.indexDATA(req, res, Recipes);
   },
 
   updateRecipes: function (req, res) {
