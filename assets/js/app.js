@@ -72,10 +72,79 @@
 
 $(document).ready(function() {
   
-  socket.get("/json/recipes", function (response) { 
-    $(response).each(function() {
-      console.log(this);
-    }); 
+  getAll("recipes");
+  
+
+
+  $(".menuBtn").on("click", function() {
+    var model = $(this).attr("data-model");
+
+    $(".menuBtn").removeClass("active");
+    $(this).addClass("active");
+    $(".sub-header").html(model.charAt(0).toUpperCase() + model.slice(1));
+    $(".searchBox").val("");
+    getAll(model)
+
   });
+
+
+  $(".searchBox").keyup(function(e) {
+    var query = $(this).val();
+    if(e.keyCode === 13) {
+      e.preventDefault();
+    }
+
+    if(query == '') {
+      getAll($('.active').attr('data-model'));
+    } else {
+      searchByName(query);
+    }
+  });
+
+  //functions
+  function searchByName(query) {
+    var model = $(".active").attr("data-model");
+    socket.get("/json/"+model+"/search?"+query, function (response) { 
+      displayResults(model, response);
+    });
+  }
+
+  function getAll(model) {
+    socket.get("/json/"+model, function (response) { 
+      displayResults(model, response); 
+    });
+  }
+
+  function displayResults(model, response) {
+    if(model == "recipes") var headerTemplate = "<tr><th>Name</th><th>Ingredients</th><th>Time</th><th>Yield</th><th>Area/Tool</th></tr>";
+    if(model == "ingredients") var headerTemplate = "<tr><th>Name</th><th>used in</th>";
+    $(".tableBody").html("");
+    $(".tableHead").html(headerTemplate);
+    $(response).each(function() {  
+      var area = typeof(this.craft_area)==='object' ? "none" : this.craft_area;
+      var tool = typeof(this.craft_tool)==='object' ? "none" : this.craft_tool; 
+      if(model == "recipes") var bodyTemplate = "<tr><td>"+this.name+"</td><td>"+getIngredientsForRecipes(this.ingredients)+"</td><td>"+this.craft_time+"</td><td>"+this.count+"</td><td>"+area+"/"+tool+"</td></tr>";
+      if(model == "ingredients") var bodyTemplate = "<tr><td>"+this.name+"</td><td>"+getUsedInForIngredients(this.usedIn)+"</td></tr>";
+      $(".tableBody").append(bodyTemplate);
+    });
+  }
+
+  function getIngredientsForRecipes(ingredientsArray) {
+    var html = "";
+    $(ingredientsArray).each(function() {
+      var grid = typeof(this.grid.x) != "undefined" ? " ("+this.grid.x+", "+this.grid.y+")" : "";
+      html += "<span>"+this.name +" "+ grid +"</span><br>"
+    });
+    return html;
+  }
+
+  function getUsedInForIngredients(usedInArray) {
+    var html = "";
+    $(usedInArray).each(function() {
+      html += "<span>"+this+"</span><br>"
+    });
+    return html;
+  }
+
 
 });

@@ -42,7 +42,7 @@ module.exports = {
 	},
 
   	indexDATA: function(req, res) {
-		return ModelService.fullModelDATA(req, res, Ingredients);
+		return ModelService.indexDATA(req, res, Ingredients);
 	},
 
 
