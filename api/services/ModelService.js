@@ -83,7 +83,6 @@ exports.searchByName = function(req, res, model) {
 // ModelService.js - in api/services
 exports.searchByNameDATA = function(req, res, model) {
   var JSONorXML = req.param('JSONorXML');
-  console.log(JSONorXML);
   var results = [];
   var searchTerms = Object.keys(req.query);
   for(i=0;i<searchTerms.length;i++) {
@@ -105,7 +104,6 @@ exports.searchByNameDATA = function(req, res, model) {
     }
     var builder = new xml2js.Builder();
     var xml = builder.buildObject(toConvert);
-    console.log(xml);
     return res.header('Content-Type', 'text/xml').send(xml); 
   }
 
@@ -133,7 +131,6 @@ exports.indexDATA = function(req, res, model) {
       }
       var builder = new xml2js.Builder();
       var xml = builder.buildObject(toConvert);
-      console.log(xml);
       return res.header('Content-Type', 'text/xml').send(xml); 
     }
 
