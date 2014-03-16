@@ -94,3 +94,21 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+
+
+
+.paginationBtn {
+display: block;
+float: left;
+width: 15px;
+height: 15px;
+background-color: rgba(239, 239, 239, 0.24);
+border-radius: 360px;
+box-shadow: inset 2px 0px 2px -1px #efefef;
+}
+
+.activePage {
+  background-color: rgba(78, 136, 199, 1);
+  box-shadow: inset 1px 0px 10px 0px #efefef;;
+}

@@ -40,32 +40,32 @@ module.exports.routes = {
 
   '/recipes/updateAll': 'RecipesController.updateRecipes', // return view
 
-  '/:JSONorXML/recipes': {
+  '/api/:JSONorXML/recipes': {
       controller    : 'recipesController',
       action        : 'indexDATA'
   },
   
-  '/:JSONorXML/recipe/:name': {
+  '/api/:JSONorXML/recipe/:name': {
       controller    : 'recipesController',
       action        : 'getRecipeByNameDATA'
   },
 
-  '/:JSONorXML/recipes/search': {
+  '/api/:JSONorXML/recipes/search': {
       controller    : 'recipesController',
       action        : 'searchDATA'
   },
 
-  '/:JSONorXML/ingredients': {
+  '/api/:JSONorXML/ingredients': {
       controller    : 'ingredientsController',
       action        : 'indexDATA'
   },
 
-  '/:JSONorXML/ingredient/:name': {
+  '/api/:JSONorXML/ingredient/:name': {
       controller    : 'ingredientsController',
       action        : 'getIngredientByNameDATA'
   },
 
-  '/:JSONorXML/ingredients/search': {
+  '/api/:JSONorXML/ingredients/search': {
       controller    : 'ingredientsController',
       action        : 'searchDATA'
   },

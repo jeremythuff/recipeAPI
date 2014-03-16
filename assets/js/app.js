@@ -72,12 +72,20 @@
 
 $(document).ready(function() {
   
-  getAll("recipes");
-  
 
 
+  //initilize
+  var numPerPage = 20;
+  var offsetresults = 0; //set to active page
+  var currentResults = {};
+  var model = $(".active").attr("data-model");
+
+
+  getAll(model);
+
+  //listeners
   $(".menuBtn").on("click", function() {
-    var model = $(this).attr("data-model");
+    model = $(this).attr("data-model");
 
     $(".menuBtn").removeClass("active");
     $(this).addClass("active");
@@ -87,13 +95,11 @@ $(document).ready(function() {
 
   });
 
-
   $(".searchBox").keyup(function(e) {
+    if(e.keyCode === 13) e.preventDefault();
+    
     var query = $(this).val();
-    if(e.keyCode === 13) {
-      e.preventDefault();
-    }
-
+    
     if(query == '') {
       getAll($('.active').attr('data-model'));
     } else {
@@ -101,32 +107,57 @@ $(document).ready(function() {
     }
   });
 
+  $('.pagination').on('click', '.paginationBtn', function() {
+    var model = $('.active').attr("data-model");
+    var offsetresults = $(this).attr('data-offset');
+    displayResults(model, offsetresults)
+  });
+
   //functions
   function searchByName(query) {
     var model = $(".active").attr("data-model");
-    socket.get("/json/"+model+"/search?"+query, function (response) { 
-      displayResults(model, response);
+    socket.get("/api/json/"+model+"/search?"+query, function (response) { 
+      currentResults = response; 
+      displayResults(model, 0);
     });
   }
 
   function getAll(model) {
-    socket.get("/json/"+model, function (response) { 
-      displayResults(model, response); 
+    var model = $(".active").attr("data-model");
+    socket.get("/api/json/"+model, function (response) {
+      currentResults = response; 
+      displayResults(model, 0); 
     });
   }
 
-  function displayResults(model, response) {
+  function displayResults(model, offsetresults) {
+    
+    paginate(currentResults, offsetresults);
+
     if(model == "recipes") var headerTemplate = "<tr><th>Name</th><th>Ingredients</th><th>Time</th><th>Yield</th><th>Area/Tool</th></tr>";
     if(model == "ingredients") var headerTemplate = "<tr><th>Name</th><th>used in</th>";
     $(".tableBody").html("");
     $(".tableHead").html(headerTemplate);
-    $(response).each(function() {  
-      var area = typeof(this.craft_area)==='object' ? "none" : this.craft_area;
-      var tool = typeof(this.craft_tool)==='object' ? "none" : this.craft_tool; 
-      if(model == "recipes") var bodyTemplate = "<tr><td>"+this.name+"</td><td>"+getIngredientsForRecipes(this.ingredients)+"</td><td>"+this.craft_time+"</td><td>"+this.count+"</td><td>"+area+"/"+tool+"</td></tr>";
-      if(model == "ingredients") var bodyTemplate = "<tr><td>"+this.name+"</td><td>"+getUsedInForIngredients(this.usedIn)+"</td></tr>";
+    
+    for(var i=offsetresults;(i<currentResults.length);i++) {
+      var response = currentResults[i];
+      var area = typeof(response.craft_area)==='object' ? "none" : response.craft_area;
+      var tool = typeof(response.craft_tool)==='object' ? "none" : response.craft_tool; 
+      if(model == "recipes") var bodyTemplate = "<tr><td>"+response.name+"</td><td>"+getIngredientsForRecipes(response.ingredients)+"</td><td>"+response.craft_time+"</td><td>"+response.count+"</td><td>"+area+"/"+tool+"</td></tr>";
+      if(model == "ingredients") var bodyTemplate = "<tr><td>"+response.name+"</td><td>"+getUsedInForIngredients(response.usedIn)+"</td></tr>";
       $(".tableBody").append(bodyTemplate);
-    });
+    }
+  
+  }
+
+  function paginate(response, offsetresults) {
+    var numPages = Math.ceil(response.length/numPerPage);
+    $('.pagination').html('');
+    
+    for(var i=1;i<numPages;i++) {
+        var state = ((i-1)*numPerPage) == offsetresults ? "activePage": "";
+        $(".pagination").append("<span style='margin-right:10px;cursor:pointer;' class='paginationBtn "+state+"' data-offset='"+((i-1)*numPerPage)+"''></span>");
+    }
   }
 
   function getIngredientsForRecipes(ingredientsArray) {

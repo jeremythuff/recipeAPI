@@ -26,7 +26,7 @@ exports.clearAll = function(model) {
 
           });
         }
-        console.log('Done');
+        console.log('Done!');
       }
     });
 };
@@ -75,7 +75,7 @@ exports.searchByName = function(req, res, model) {
       results.push(result);
     });
   }
-
+  
   return res.view(); 
 
 };
@@ -104,9 +104,10 @@ exports.searchByNameDATA = function(req, res, model) {
     }
     var builder = new xml2js.Builder();
     var xml = builder.buildObject(toConvert);
+    console.log("found it!");
     return res.header('Content-Type', 'text/xml').send(xml); 
   }
-
+  console.log("found it!");
   return res.json(results[0]); 
 
 };
