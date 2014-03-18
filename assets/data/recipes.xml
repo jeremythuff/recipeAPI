@@ -24,56 +24,6 @@
         <ingredient name="venison" count="1"/>
     </recipe>
 
-    <recipe name="blueberryPie" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="30" >
-        <ingredient name="egg" count="1"/>
-        <ingredient name="cornMeal" count="1"/>
-        <ingredient name="bottledWater" count="1"/>
-        <ingredient name="blueberries" count="1"/>
-    </recipe>
-
-    <recipe name="bottledWater" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="20" >
-        <ingredient name="bottledRiverWater" count="1"/>
-    </recipe>
-
-    <recipe name="cornBread" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="15" >
-        <ingredient name="cornMeal" count="1"/>
-        <ingredient name="bottledWater" count="1"/>
-    </recipe>
-
-    <recipe name="goldenRodTea" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="30" >
-        <ingredient name="yellowflower" count="1"/>
-        <ingredient name="bottledWater" count="1"/>
-    </recipe>
-
-    <recipe name="porkBoiled" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="20" >
-        <ingredient name="bottledWater" count="1"/>
-        <ingredient name="pork" count="1"/>
-    </recipe>
-
-    <recipe name="rabbitBoiled" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="20" >
-        <ingredient name="bottledWater" count="1"/>
-        <ingredient name="rabbit" count="1"/>
-    </recipe>
-
-    <recipe name="rabbitStew" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="30" >
-        <ingredient name="rabbit" count="1"/>
-        <ingredient name="bottledWater" count="1"/>
-        <ingredient name="potato" count="1"/>
-        <ingredient name="corn" count="1"/>
-    </recipe>
-
-    <recipe name="venisonBoiled" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="20" >
-        <ingredient name="venison" count="1"/>
-        <ingredient name="bottledWater" count="1"/>
-    </recipe>
-
-    <recipe name="venisonStew" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="30" >
-        <ingredient name="bottledWater" count="1"/>
-        <ingredient name="venison" count="1"/>
-        <ingredient name="potato" count="1"/>
-        <ingredient name="corn" count="1"/>
-    </recipe>
-
     <recipe name="10mmBullet" count="1" scrapable="True" craft_time="1" >
         <ingredient name="bulletTip" count="1" grid="0, -2"/>
         <ingredient name="gunPowder" count="1" grid="0, -1"/>
@@ -161,8 +111,13 @@
         <ingredient name="cloth" count="1" grid="2, 2"/>
     </recipe>
 
-    <recipe name="blueberrySeed" count="4" scrapable="False" craft_time="5" >
-        <ingredient name="blueberries" count="1" grid="0, 0"/>
+    <recipe name="boardedWindows" count="6" scrapable="False" craft_time="5" >
+        <ingredient name="thinPlanks" count="1" grid="-1, -2"/>
+        <ingredient name="thinPlanks" count="1" grid="0, -2"/>
+        <ingredient name="thinPlanks" count="1" grid="1, -2"/>
+        <ingredient name="thinPlanks" count="1" grid="-1, 0"/>
+        <ingredient name="thinPlanks" count="1" grid="0, 0"/>
+        <ingredient name="thinPlanks" count="1" grid="1, 0"/>
     </recipe>
 
     <recipe name="boardedWindows" count="6" scrapable="False" craft_time="5" >
@@ -172,15 +127,6 @@
         <ingredient name="thinPlanksOld" count="1" grid="-1, 0"/>
         <ingredient name="thinPlanksOld" count="1" grid="0, 0"/>
         <ingredient name="thinPlanksOld" count="1" grid="1, 0"/>
-    </recipe>
-
-    <recipe name="boardedWindows" count="6" scrapable="False" craft_time="5" >
-        <ingredient name="thinPlanks" count="1" grid="-1, -2"/>
-        <ingredient name="thinPlanks" count="1" grid="0, -2"/>
-        <ingredient name="thinPlanks" count="1" grid="1, -2"/>
-        <ingredient name="thinPlanks" count="1" grid="-1, 0"/>
-        <ingredient name="thinPlanks" count="1" grid="0, 0"/>
-        <ingredient name="thinPlanks" count="1" grid="1, 0"/>
     </recipe>
 
     <recipe name="boneShiv" count="1" scrapable="False" craft_time="5" >
@@ -270,13 +216,13 @@
         <ingredient name="rockSmall" count="1" grid="1, 1"/>
     </recipe>
 
-    <recipe name="clayLump" count="9" scrapable="False" craft_time="5" >
-        <ingredient name="clay" count="1" grid="0, 0"/>
-    </recipe>
-
     <recipe name="clayLump" count="5" scrapable="False" craft_time="5" >
         <ingredient name="cornMeal" count="1" grid="0, 0"/>
         <ingredient name="bottledWater" count="1" grid="1, 0"/>
+    </recipe>
+
+    <recipe name="clayLump" count="9" scrapable="False" craft_time="5" >
+        <ingredient name="clay" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="clubBarbed" count="1" scrapable="False" craft_time="5" >
@@ -329,17 +275,29 @@
     </recipe>
 
     <recipe name="cobblestone" count="4" scrapable="False" craft_time="5" >
+        <ingredient name="stone" count="1" grid="-1, -1"/>
+        <ingredient name="stone" count="1" grid="0, -1"/>
+        <ingredient name="stone" count="1" grid="-1, 0"/>
+        <ingredient name="stone" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="cobblestone" count="4" scrapable="False" craft_time="5" >
         <ingredient name="destroyedStone" count="1" grid="-1, -1"/>
         <ingredient name="destroyedStone" count="1" grid="0, -1"/>
         <ingredient name="destroyedStone" count="1" grid="-1, 0"/>
         <ingredient name="destroyedStone" count="1" grid="0, 0"/>
     </recipe>
 
-    <recipe name="cobblestone" count="4" scrapable="False" craft_time="5" >
-        <ingredient name="stone" count="1" grid="-1, -1"/>
+    <recipe name="concrete" count="4" scrapable="False" craft_time="15" >
+        <ingredient name="gravel" count="1" grid="-1, -1"/>
         <ingredient name="stone" count="1" grid="0, -1"/>
+        <ingredient name="gravel" count="1" grid="1, -1"/>
         <ingredient name="stone" count="1" grid="-1, 0"/>
-        <ingredient name="stone" count="1" grid="0, 0"/>
+        <ingredient name="gravel" count="1" grid="0, 0"/>
+        <ingredient name="stone" count="1" grid="1, 0"/>
+        <ingredient name="gravel" count="1" grid="-1, 1"/>
+        <ingredient name="stone" count="1" grid="0, 1"/>
+        <ingredient name="gravel" count="1" grid="1, 1"/>
     </recipe>
 
     <recipe name="concrete" count="4" scrapable="False" craft_time="15" >
@@ -427,11 +385,11 @@
     </recipe>
 
     <recipe name="crushedSand" count="4" scrapable="False" craft_time="5" >
-        <ingredient name="sand" count="1" grid="0, 0"/>
+        <ingredient name="sandStone" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="crushedSand" count="4" scrapable="False" craft_time="5" >
-        <ingredient name="sandStone" count="1" grid="0, 0"/>
+        <ingredient name="sand" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="desk01" count="1" scrapable="False" craft_time="60" >
@@ -538,9 +496,14 @@
         <ingredient name="stone" count="1" grid="-1, 0"/>
         <ingredient name="stone" count="1" grid="0, 0"/>
         <ingredient name="stone" count="1" grid="1, 0"/>
+        <ingredient name="shortMetalPipe" count="1" grid="-2, 1"/>
         <ingredient name="stone" count="1" grid="-1, 1"/>
         <ingredient name="stone" count="1" grid="0, 1"/>
         <ingredient name="stone" count="1" grid="1, 1"/>
+    </recipe>
+
+    <recipe name="gasCan" count="6" scrapable="False" craft_time="30" >
+        <ingredient name="oilBarrel" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="gasCan" count="6" scrapable="False" craft_time="30" >
@@ -556,20 +519,20 @@
         <ingredient name="clayLump" count="1" grid="1, 1"/>
     </recipe>
 
-    <recipe name="gravel" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="cinderBlocks03" count="1" grid="0, 0"/>
-    </recipe>
-
-    <recipe name="gravel" count="1" scrapable="False" craft_time="10" >
-        <ingredient name="destroyedStone" count="1" grid="0, 0"/>
-    </recipe>
-
     <recipe name="gravel" count="2" scrapable="False" craft_time="10" >
         <ingredient name="cinderBlocks01" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="gravel" count="3" scrapable="False" craft_time="15" >
         <ingredient name="cinderBlocks02" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="gravel" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="cinderBlocks03" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="gravel" count="1" scrapable="False" craft_time="10" >
+        <ingredient name="destroyedStone" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="gunPowder" count="10" scrapable="False" craft_time="1" >
@@ -601,7 +564,7 @@
         <ingredient name="stick" count="1" grid="0, 0"/>
     </recipe>
 
-    <recipe name="huntingRifle" count="1" scrapable="False" craft_time="20" >
+    <recipe name="huntingRifle" count="1" scrapable="True" craft_time="20" >
         <ingredient name="huntingRifleBarrel" count="1" grid="1, -1"/>
         <ingredient name="huntingRifleStock" count="1" grid="0, 0"/>
         <ingredient name="huntingRifleBolt" count="1" grid="1, 0"/>
@@ -679,6 +642,57 @@
         <ingredient name="shortMetalPipe" count="1" grid="2, 2"/>
     </recipe>
 
+    <recipe name="ironBoots" count="1" scrapable="False" craft_time="15" >
+        <ingredient name="leather" count="1" grid="0, -1"/>
+        <ingredient name="thinMetalPlate" count="1" grid="0, 0"/>
+        <ingredient name="thinMetalPlate" count="1" grid="1, 0"/>
+    </recipe>
+
+    <recipe name="ironChestArmor" count="1" scrapable="False" craft_time="25" >
+        <ingredient name="thinMetalPlate" count="1" grid="-1, -1"/>
+        <ingredient name="thinMetalPlate" count="1" grid="0, -1"/>
+        <ingredient name="thinMetalPlate" count="1" grid="1, -1"/>
+        <ingredient name="thinMetalPlate" count="1" grid="-2, 0"/>
+        <ingredient name="leather" count="1" grid="-1, 0"/>
+        <ingredient name="thinMetalPlate" count="1" grid="0, 0"/>
+        <ingredient name="leather" count="1" grid="1, 0"/>
+        <ingredient name="thinMetalPlate" count="1" grid="2, 0"/>
+        <ingredient name="leather" count="1" grid="-1, 1"/>
+        <ingredient name="thinMetalPlate" count="1" grid="0, 1"/>
+        <ingredient name="leather" count="1" grid="1, 1"/>
+        <ingredient name="leather" count="1" grid="-1, 2"/>
+        <ingredient name="thinMetalPlate" count="1" grid="0, 2"/>
+        <ingredient name="leather" count="1" grid="1, 2"/>
+    </recipe>
+
+    <recipe name="ironGloves" count="1" scrapable="False" craft_time="15" >
+        <ingredient name="thinMetalPlate" count="1" grid="1, -1"/>
+        <ingredient name="leather" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="ironHelmet" count="1" scrapable="False" craft_time="20" >
+        <ingredient name="thinMetalPlate" count="1" grid="0, -1"/>
+        <ingredient name="thinMetalPlate" count="1" grid="-1, 0"/>
+        <ingredient name="thinMetalPlate" count="1" grid="0, 0"/>
+        <ingredient name="thinMetalPlate" count="1" grid="1, 0"/>
+        <ingredient name="thinMetalPlate" count="1" grid="-1, 1"/>
+    </recipe>
+
+    <recipe name="ironLegArmor" count="1" scrapable="False" craft_time="25" >
+        <ingredient name="leather" count="1" grid="-1, -2"/>
+        <ingredient name="leather" count="1" grid="0, -2"/>
+        <ingredient name="leather" count="1" grid="1, -2"/>
+        <ingredient name="leather" count="1" grid="-1, -1"/>
+        <ingredient name="thinMetalPlate" count="1" grid="0, -1"/>
+        <ingredient name="leather" count="1" grid="1, -1"/>
+        <ingredient name="thinMetalPlate" count="1" grid="-1, 0"/>
+        <ingredient name="thinMetalPlate" count="1" grid="1, 0"/>
+        <ingredient name="thinMetalPlate" count="1" grid="-1, 1"/>
+        <ingredient name="thinMetalPlate" count="1" grid="1, 1"/>
+        <ingredient name="thinMetalPlate" count="1" grid="-1, 2"/>
+        <ingredient name="thinMetalPlate" count="1" grid="1, 2"/>
+    </recipe>
+
     <recipe name="ironWall" count="1" scrapable="False" craft_time="30" >
         <ingredient name="ingotIron" count="1" grid="-1, -1"/>
         <ingredient name="ingotIron" count="1" grid="0, -1"/>
@@ -721,14 +735,52 @@
         <ingredient name="shortMetalPipe" count="1" grid="1, 2"/>
     </recipe>
 
-    <recipe name="logCabin" count="8" scrapable="False" craft_time="4" >
-        <ingredient name="trunkBirch" count="1" grid="0, -1"/>
-        <ingredient name="trunkBirch" count="1" grid="0, 0"/>
+    <recipe name="leather" count="3" scrapable="False" craft_time="5" >
+        <ingredient name="animalHide" count="1" grid="0, 0"/>
     </recipe>
 
-    <recipe name="logCabin" count="8" scrapable="False" craft_time="4" >
-        <ingredient name="trunkPine" count="1" grid="0, -1"/>
-        <ingredient name="trunkPine" count="1" grid="0, 0"/>
+    <recipe name="leatherBoots" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="leather" count="1" grid="0, -1"/>
+        <ingredient name="leather" count="1" grid="0, 0"/>
+        <ingredient name="leather" count="1" grid="1, 0"/>
+    </recipe>
+
+    <recipe name="leatherGloves" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="leather" count="1" grid="0, 0"/>
+        <ingredient name="leather" count="1" grid="1, 1"/>
+    </recipe>
+
+    <recipe name="leatherHat" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="leather" count="1" grid="0, -1"/>
+        <ingredient name="leather" count="1" grid="-1, 0"/>
+        <ingredient name="leather" count="1" grid="0, 0"/>
+        <ingredient name="leather" count="1" grid="1, 0"/>
+    </recipe>
+
+    <recipe name="leatherJacket" count="1" scrapable="False" craft_time="10" >
+        <ingredient name="leather" count="1" grid="-1, -1"/>
+        <ingredient name="leather" count="1" grid="0, -1"/>
+        <ingredient name="leather" count="1" grid="1, -1"/>
+        <ingredient name="leather" count="1" grid="-2, 0"/>
+        <ingredient name="leather" count="1" grid="0, 0"/>
+        <ingredient name="leather" count="1" grid="2, 0"/>
+        <ingredient name="leather" count="1" grid="0, 1"/>
+        <ingredient name="leather" count="1" grid="0, 2"/>
+    </recipe>
+
+    <recipe name="leatherPants" count="1" scrapable="False" craft_time="10" >
+        <ingredient name="leather" count="1" grid="-1, -2"/>
+        <ingredient name="leather" count="1" grid="0, -2"/>
+        <ingredient name="leather" count="1" grid="1, -2"/>
+        <ingredient name="leather" count="1" grid="-1, -1"/>
+        <ingredient name="leather" count="1" grid="0, -1"/>
+        <ingredient name="leather" count="1" grid="1, -1"/>
+        <ingredient name="leather" count="1" grid="-1, 0"/>
+        <ingredient name="leather" count="1" grid="1, 0"/>
+        <ingredient name="leather" count="1" grid="-1, 1"/>
+        <ingredient name="leather" count="1" grid="1, 1"/>
+        <ingredient name="leather" count="1" grid="-1, 2"/>
+        <ingredient name="leather" count="1" grid="1, 2"/>
     </recipe>
 
     <recipe name="logCabin" count="8" scrapable="False" craft_time="4" >
@@ -739,6 +791,16 @@
     <recipe name="logCabin" count="8" scrapable="False" craft_time="4" >
         <ingredient name="trunk" count="1" grid="0, -1"/>
         <ingredient name="trunk" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="logCabin" count="8" scrapable="False" craft_time="4" >
+        <ingredient name="trunkPine" count="1" grid="0, -1"/>
+        <ingredient name="trunkPine" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="logCabin" count="8" scrapable="False" craft_time="4" >
+        <ingredient name="trunkBirch" count="1" grid="0, -1"/>
+        <ingredient name="trunkBirch" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="metalTrussing" count="3" scrapable="False" craft_time="20" >
@@ -809,6 +871,18 @@
         <ingredient name="clayLump" count="1" grid="1, 1"/>
     </recipe>
 
+    <recipe name="nightstand" count="1" scrapable="False" craft_time="15" >
+        <ingredient name="thinPlanks" count="1" grid="-1, -2"/>
+        <ingredient name="thinPlanks" count="1" grid="0, -2"/>
+        <ingredient name="thinPlanks" count="1" grid="1, -2"/>
+        <ingredient name="thinPlanks" count="1" grid="-1, -1"/>
+        <ingredient name="thinPlanks" count="1" grid="0, -1"/>
+        <ingredient name="thinPlanks" count="1" grid="1, -1"/>
+        <ingredient name="thinPlanks" count="1" grid="-1, 0"/>
+        <ingredient name="thinPlanks" count="1" grid="0, 0"/>
+        <ingredient name="thinPlanks" count="1" grid="1, 0"/>
+    </recipe>
+
     <recipe name="oilBarrel" count="1" scrapable="False" craft_time="30" >
         <ingredient name="gasCan" count="1" grid="-1, -2"/>
         <ingredient name="gasCan" count="1" grid="0, -2"/>
@@ -834,12 +908,12 @@
         <ingredient name="driftwood2" count="1" grid="0, 0"/>
     </recipe>
 
-    <recipe name="oldWood" count="2" scrapable="False" craft_time="5" >
-        <ingredient name="trunkBurnt" count="1" grid="0, 0"/>
-    </recipe>
-
     <recipe name="oldWood" count="1" scrapable="False" craft_time="5" >
         <ingredient name="driftwood" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="oldWood" count="2" scrapable="False" craft_time="5" >
+        <ingredient name="trunkBurnt" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="paper" count="20" scrapable="False" craft_time="5" >
@@ -895,18 +969,6 @@
         <ingredient name="clayLump" count="1" grid="1, 1"/>
     </recipe>
 
-    <recipe name="planks" count="1" scrapable="False" craft_time="4" >
-        <ingredient name="trunkBirchTip" count="1" grid="0, 0"/>
-    </recipe>
-
-    <recipe name="planks" count="2" scrapable="False" craft_time="4" >
-        <ingredient name="trunk" count="1" grid="0, 0"/>
-    </recipe>
-
-    <recipe name="planks" count="2" scrapable="False" craft_time="4" >
-        <ingredient name="trunkPine" count="1" grid="0, 0"/>
-    </recipe>
-
     <recipe name="planks" count="2" scrapable="False" craft_time="4" >
         <ingredient name="trunkBirch" count="1" grid="0, 0"/>
     </recipe>
@@ -917,6 +979,18 @@
 
     <recipe name="planks" count="1" scrapable="False" craft_time="4" >
         <ingredient name="trunkTip" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="planks" count="2" scrapable="False" craft_time="4" >
+        <ingredient name="trunkPine" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="planks" count="1" scrapable="False" craft_time="4" >
+        <ingredient name="trunkBirchTip" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="planks" count="2" scrapable="False" craft_time="4" >
+        <ingredient name="trunk" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="planks4" count="8" scrapable="False" craft_time="5" >
@@ -980,12 +1054,12 @@
     </recipe>
 
     <recipe name="PumpShotgun_shortStock" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="thinPlanks" count="1" grid="0, 0"/>
-        <ingredient name="thinPlanks" count="1" grid="-1, 1"/>
+        <ingredient name="PumpShotgun_stock" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="PumpShotgun_shortStock" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="PumpShotgun_stock" count="1" grid="0, 0"/>
+        <ingredient name="thinPlanks" count="1" grid="0, 0"/>
+        <ingredient name="thinPlanks" count="1" grid="-1, 1"/>
     </recipe>
 
     <recipe name="PumpShotgun_stock" count="1" scrapable="False" craft_time="5" >
@@ -1075,7 +1149,13 @@
         <ingredient name="thinPlanks" count="1" grid="0, 0"/>
     </recipe>
 
-    <recipe name="sectionalCorner" count="1" scrapable="False" craft_time="30" >
+    <recipe name="sectionalArm2" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="leather" count="1" grid="0, -2"/>
+        <ingredient name="leather" count="1" grid="0, -1"/>
+        <ingredient name="thinPlanks" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="sectionalCorner" count="1" scrapable="False" craft_time="20" >
         <ingredient name="thinPlanks" count="1" grid="-1, -2"/>
         <ingredient name="cloth" count="1" grid="0, -2"/>
         <ingredient name="thinPlanks" count="1" grid="-1, -1"/>
@@ -1090,7 +1170,22 @@
         <ingredient name="thinPlanks" count="1" grid="2, 1"/>
     </recipe>
 
-    <recipe name="sectionalMiddle" count="1" scrapable="False" craft_time="30" >
+    <recipe name="sectionalCorner2" count="1" scrapable="False" craft_time="20" >
+        <ingredient name="thinPlanks" count="1" grid="-1, -2"/>
+        <ingredient name="leather" count="1" grid="0, -2"/>
+        <ingredient name="thinPlanks" count="1" grid="-1, -1"/>
+        <ingredient name="leather" count="1" grid="0, -1"/>
+        <ingredient name="thinPlanks" count="1" grid="-1, 0"/>
+        <ingredient name="leather" count="1" grid="0, 0"/>
+        <ingredient name="leather" count="1" grid="1, 0"/>
+        <ingredient name="leather" count="1" grid="2, 0"/>
+        <ingredient name="thinPlanks" count="1" grid="-1, 1"/>
+        <ingredient name="thinPlanks" count="1" grid="0, 1"/>
+        <ingredient name="thinPlanks" count="1" grid="1, 1"/>
+        <ingredient name="thinPlanks" count="1" grid="2, 1"/>
+    </recipe>
+
+    <recipe name="sectionalMiddle" count="1" scrapable="False" craft_time="15" >
         <ingredient name="cloth" count="1" grid="0, -2"/>
         <ingredient name="thinPlanks" count="1" grid="1, -2"/>
         <ingredient name="cloth" count="1" grid="0, -1"/>
@@ -1098,6 +1193,21 @@
         <ingredient name="cloth" count="1" grid="-2, 0"/>
         <ingredient name="cloth" count="1" grid="-1, 0"/>
         <ingredient name="cloth" count="1" grid="0, 0"/>
+        <ingredient name="thinPlanks" count="1" grid="1, 0"/>
+        <ingredient name="thinPlanks" count="1" grid="-2, 1"/>
+        <ingredient name="thinPlanks" count="1" grid="-1, 1"/>
+        <ingredient name="thinPlanks" count="1" grid="0, 1"/>
+        <ingredient name="thinPlanks" count="1" grid="1, 1"/>
+    </recipe>
+
+    <recipe name="sectionalMiddle2" count="1" scrapable="False" craft_time="15" >
+        <ingredient name="leather" count="1" grid="0, -2"/>
+        <ingredient name="thinPlanks" count="1" grid="1, -2"/>
+        <ingredient name="leather" count="1" grid="0, -1"/>
+        <ingredient name="thinPlanks" count="1" grid="1, -1"/>
+        <ingredient name="leather" count="1" grid="-2, 0"/>
+        <ingredient name="leather" count="1" grid="-1, 0"/>
+        <ingredient name="leather" count="1" grid="0, 0"/>
         <ingredient name="thinPlanks" count="1" grid="1, 0"/>
         <ingredient name="thinPlanks" count="1" grid="-2, 1"/>
         <ingredient name="thinPlanks" count="1" grid="-1, 1"/>
@@ -1237,43 +1347,11 @@
     </recipe>
 
     <recipe name="stick" count="3" scrapable="False" craft_time="2" >
-        <ingredient name="thinPlanksOld" count="1" grid="0, 0"/>
-    </recipe>
-
-    <recipe name="stick" count="3" scrapable="False" craft_time="2" >
         <ingredient name="thinPlanks" count="1" grid="0, 0"/>
     </recipe>
 
-    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="rock09" count="1" grid="0, 0"/>
-    </recipe>
-
-    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="rock08" count="1" grid="0, 0"/>
-    </recipe>
-
-    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="rock03" count="1" grid="0, 0"/>
-    </recipe>
-
-    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="rock05" count="1" grid="0, 0"/>
-    </recipe>
-
-    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="rock11" count="1" grid="0, 0"/>
-    </recipe>
-
-    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="rock10" count="1" grid="0, 0"/>
-    </recipe>
-
-    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="rock07" count="1" grid="0, 0"/>
-    </recipe>
-
-    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="rock02" count="1" grid="0, 0"/>
+    <recipe name="stick" count="3" scrapable="False" craft_time="2" >
+        <ingredient name="thinPlanksOld" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="stone" count="1" scrapable="False" craft_time="5" >
@@ -1281,7 +1359,15 @@
     </recipe>
 
     <recipe name="stone" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="rock02" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
         <ingredient name="rock12" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="rock01" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="stone" count="1" scrapable="False" craft_time="5" >
@@ -1289,7 +1375,31 @@
     </recipe>
 
     <recipe name="stone" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="rock01" count="1" grid="0, 0"/>
+        <ingredient name="rock07" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="rock03" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="rock08" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="rock09" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="rock10" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="rock11" count="1" grid="0, 0"/>
+    </recipe>
+
+    <recipe name="stone" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="rock05" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="stoneAxe" count="1" scrapable="False" craft_time="4" >
@@ -1333,12 +1443,12 @@
     </recipe>
 
     <recipe name="torch" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="cloth" count="1" grid="0, -1"/>
+        <ingredient name="brownGrassDiagonal" count="1" grid="0, -1"/>
         <ingredient name="stick" count="1" grid="0, 0"/>
     </recipe>
 
     <recipe name="torch" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="brownGrassDiagonal" count="1" grid="0, -1"/>
+        <ingredient name="cloth" count="1" grid="0, -1"/>
         <ingredient name="stick" count="1" grid="0, 0"/>
     </recipe>
 
@@ -1351,7 +1461,7 @@
         <ingredient name="gunPowder" count="1" grid="1, 0"/>
     </recipe>
 
-    <recipe name="trapSpikes01" count="3" scrapable="False" craft_time="30" >
+    <recipe name="trapSpikes01" count="3" scrapable="False" craft_time="10" >
         <ingredient name="sharpStick" count="1" grid="-2, 0"/>
         <ingredient name="sharpStick" count="1" grid="0, 0"/>
         <ingredient name="sharpStick" count="1" grid="2, 0"/>
@@ -1380,14 +1490,14 @@
     <recipe name="trunkBurntTip" count="4" scrapable="False" craft_time="5" >
         <ingredient name="trunkBurnt" count="1" grid="0, -1"/>
         <ingredient name="trunkBurnt" count="1" grid="-1, 0"/>
-        <ingredient name="trunkBurnt" count="32" grid="0, 0"/>
+        <ingredient name="trunkBurnt" count="1" grid="0, 0"/>
         <ingredient name="trunkBurnt" count="1" grid="1, 0"/>
     </recipe>
 
     <recipe name="trunkBurntTip" count="4" scrapable="False" craft_time="5" >
         <ingredient name="trunkBurnt" count="1" grid="0, -1"/>
         <ingredient name="trunkBurnt" count="1" grid="-1, 0"/>
-        <ingredient name="trunkBurnt" count="1" grid="0, 0"/>
+        <ingredient name="trunkBurnt" count="32" grid="0, 0"/>
         <ingredient name="trunkBurnt" count="1" grid="1, 0"/>
     </recipe>
 
@@ -1431,6 +1541,34 @@
         <ingredient name="shinglesWood" count="1" grid="1, 0"/>
     </recipe>
 
+    <recipe name="windowPaned01" count="4" scrapable="False" craft_time="15" >
+        <ingredient name="stick" count="1" grid="-2, -2"/>
+        <ingredient name="stick" count="1" grid="-1, -2"/>
+        <ingredient name="stick" count="1" grid="0, -2"/>
+        <ingredient name="stick" count="1" grid="1, -2"/>
+        <ingredient name="stick" count="1" grid="2, -2"/>
+        <ingredient name="stick" count="1" grid="-2, -1"/>
+        <ingredient name="glass" count="1" grid="-1, -1"/>
+        <ingredient name="stick" count="1" grid="0, -1"/>
+        <ingredient name="glass" count="1" grid="1, -1"/>
+        <ingredient name="stick" count="1" grid="2, -1"/>
+        <ingredient name="stick" count="1" grid="-2, 0"/>
+        <ingredient name="stick" count="1" grid="-1, 0"/>
+        <ingredient name="stick" count="1" grid="0, 0"/>
+        <ingredient name="stick" count="1" grid="1, 0"/>
+        <ingredient name="stick" count="1" grid="2, 0"/>
+        <ingredient name="stick" count="1" grid="-2, 1"/>
+        <ingredient name="glass" count="1" grid="-1, 1"/>
+        <ingredient name="stick" count="1" grid="0, 1"/>
+        <ingredient name="glass" count="1" grid="1, 1"/>
+        <ingredient name="stick" count="1" grid="2, 1"/>
+        <ingredient name="stick" count="1" grid="-2, 2"/>
+        <ingredient name="stick" count="1" grid="-1, 2"/>
+        <ingredient name="stick" count="1" grid="0, 2"/>
+        <ingredient name="stick" count="1" grid="1, 2"/>
+        <ingredient name="stick" count="1" grid="2, 2"/>
+    </recipe>
+
     <recipe name="windowPaned01" count="4" scrapable="False" craft_time="5" >
         <ingredient name="stick" count="1" grid="-1, -1"/>
         <ingredient name="stick" count="1" grid="0, -1"/>
@@ -1470,12 +1608,477 @@
         <ingredient name="shortMetalPipe" count="1" grid="0, 2"/>
     </recipe>
 
+    <recipe name="yuccaFibers" count="1" scrapable="False" craft_time="5" >
+        <ingredient name="brownGrassDiagonal" count="1" grid="0, 0"/>
+    </recipe>
+
     <recipe name="yuccaFibers" count="4" scrapable="False" craft_time="5" >
         <ingredient name="plantYucca" count="1" grid="0, 0"/>
     </recipe>
 
-    <recipe name="yuccaFibers" count="1" scrapable="False" craft_time="5" >
-        <ingredient name="brownGrassDiagonal" count="1" grid="0, 0"/>
+    <recipe name="blueberryPie" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="30" >
+        <ingredient name="egg" count="1"/>
+        <ingredient name="cornMeal" count="1"/>
+        <ingredient name="bottledWater" count="1"/>
+        <ingredient name="blueberries" count="1"/>
     </recipe>
+
+    <recipe name="bottledWater" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="20" >
+        <ingredient name="bottledRiverWater" count="1"/>
+    </recipe>
+
+    <recipe name="coffee" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="15" >
+        <ingredient name="coffeeBeans" count="1"/>
+        <ingredient name="bottledWater" count="1"/>
+    </recipe>
+
+    <recipe name="cornBread" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="15" >
+        <ingredient name="cornMeal" count="1"/>
+        <ingredient name="bottledWater" count="1"/>
+    </recipe>
+
+    <recipe name="cornOnTheCob" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="5" >
+        <ingredient name="corn" count="1"/>
+        <ingredient name="bottledWater" count="1"/>
+    </recipe>
+
+    <recipe name="eggboiled" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="5" >
+        <ingredient name="egg" count="1"/>
+        <ingredient name="bottledWater" count="1"/>
+    </recipe>
+
+    <recipe name="goldenRodTea" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="30" >
+        <ingredient name="yellowflower" count="1"/>
+        <ingredient name="bottledWater" count="1"/>
+    </recipe>
+
+    <recipe name="porkBoiled" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="20" >
+        <ingredient name="bottledWater" count="1"/>
+        <ingredient name="pork" count="1"/>
+    </recipe>
+
+    <recipe name="rabbitBoiled" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="20" >
+        <ingredient name="bottledWater" count="1"/>
+        <ingredient name="rabbit" count="1"/>
+    </recipe>
+
+    <recipe name="rabbitStew" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="30" >
+        <ingredient name="rabbit" count="1"/>
+        <ingredient name="bottledWater" count="1"/>
+        <ingredient name="potato" count="1"/>
+        <ingredient name="corn" count="1"/>
+    </recipe>
+
+    <recipe name="venisonBoiled" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="20" >
+        <ingredient name="venison" count="1"/>
+        <ingredient name="bottledWater" count="1"/>
+    </recipe>
+
+    <recipe name="venisonStew" count="1" scrapable="False" craft_area="campfire" craft_tool="cookingPot" craft_time="30" >
+        <ingredient name="bottledWater" count="1"/>
+        <ingredient name="venison" count="1"/>
+        <ingredient name="potato" count="1"/>
+        <ingredient name="corn" count="1"/>
+    </recipe>
+	
+	<!--Custom Recipes-->
+	
+	<!--
+	<recipe name="" count="1" scrapable="False" craft_time="30">
+		<ingredient name="" count="1"  grid="-1, -1"/>
+		<ingredient name="" count="1"  grid="0, -1"/>
+		<ingredient name="" count="1"  grid="1, -1"/>
+		<ingredient name="" count="1"  grid="-1, 0"/>
+		<ingredient name="" count="1"  grid="0, 0"/>
+		<ingredient name="" count="1"  grid="1, 0"/>
+		<ingredient name="" count="1"  grid="-1, 1"/>
+		<ingredient name="" count="1"  grid="0, 1"/>
+		<ingredient name="" count="1"  grid="1, 1"/>
+	</recipe>
+	-->
+	
+	<recipe name="concretetrimblock" count="6" scrapable="False" craft_time="30">
+		<ingredient name="concrete" count="1"  grid="-1, -1"/>
+		<ingredient name="concrete" count="1"  grid="0, -1"/>
+		<ingredient name="concrete" count="1"  grid="1, -1"/>
+		<ingredient name="clayLump" count="1"  grid="-1, 0"/>
+		<ingredient name="clayLump" count="1"  grid="0, 0"/>
+		<ingredient name="clayLump" count="1"  grid="1, 0"/>
+		<ingredient name="concrete" count="1"  grid="-1, 1"/>
+		<ingredient name="concrete" count="1"  grid="0, 1"/>
+		<ingredient name="concrete" count="1"  grid="1, 1"/>
+		<ingredient name="clayLump" count="1"  grid="-1, 2"/>
+		<ingredient name="clayLump" count="1"  grid="0, 2"/>
+		<ingredient name="clayLump" count="1"  grid="1, 2"/>
+	</recipe>
+	
+	<recipe name="concretetrim3block" count="4" scrapable="False" craft_time="30">
+		<ingredient name="concrete" count="1"  grid="-1, -1"/>
+		<ingredient name="concrete" count="1"  grid="0, -1"/>
+		<ingredient name="concrete" count="1"  grid="1, -1"/>
+		<ingredient name="concrete" count="1"  grid="-1, 0"/>
+		<ingredient name="clayLump" count="1"  grid="0, 0"/>
+		<ingredient name="concrete" count="1"  grid="1, 0"/>
+		<ingredient name="concrete" count="1"  grid="-1, 1"/>
+		<ingredient name="concrete" count="1"  grid="0, 1"/>
+		<ingredient name="concrete" count="1"  grid="1, 1"/>
+	</recipe>
+	
+	<recipe name="concretetrim2block" count="6" scrapable="False" craft_time="30">
+		<ingredient name="concrete" count="1"  grid="-1, -1"/>
+		<ingredient name="concrete" count="1"  grid="0, -1"/>
+		<ingredient name="concrete" count="1"  grid="1, -1"/>
+		<ingredient name="clayLump" count="1"  grid="-1, 0"/>
+		<ingredient name="clayLump" count="1"  grid="0, 0"/>
+		<ingredient name="clayLump" count="1"  grid="1, 0"/>
+		<ingredient name="concrete" count="1"  grid="-1, 1"/>
+		<ingredient name="concrete" count="1"  grid="0, 1"/>
+		<ingredient name="concrete" count="1"  grid="1, 1"/>
+	</recipe>
+	
+	<recipe name="concreteTileGreen" count="4" scrapable="False" craft_time="15">
+		<ingredient name="yellowflower" count="1"  grid="-1, -1"/>
+		<ingredient name="clayLump" count="1"  grid="0, -1"/>
+		<ingredient name="concrete" count="1"  grid="-1, 0"/>
+		<ingredient name="concrete" count="1"  grid="0, 0"/>
+	</recipe>
+	
+	<recipe name="concreteTileBrown" count="4" scrapable="False" craft_time="15">
+		<ingredient name="plantChrysanthemum" count="1"  grid="-1, -1"/>
+		<ingredient name="clayLump" count="1"  grid="0, -1"/>
+		<ingredient name="concrete" count="1"  grid="-1, 0"/>
+		<ingredient name="concrete" count="1"  grid="0, 0"/>
+	</recipe>
+	
+	<recipe name="rug01" count="4" scrapable="False" craft_time="15">
+		<ingredient name="cloth" count="1"  grid="-1, -1"/>
+		<ingredient name="cloth" count="1"  grid="0, -1"/>
+		<ingredient name="cloth" count="1"  grid="-1, 0"/>
+		<ingredient name="cloth" count="1"  grid="0, 0"/>
+	</recipe>
+	
+	<recipe name="railingOldWood" count="4" scrapable="False" craft_time="15">
+		<ingredient name="stick" count="1"  grid="-1, -1"/>
+		<ingredient name="stick" count="1"  grid="0, -1"/>
+		<ingredient name="stick" count="1"  grid="1, -1"/>
+		<ingredient name="stick" count="1"  grid="-1, 0"/>
+		<ingredient name="stick" count="1"  grid="0, 0"/>
+		<ingredient name="stick" count="1"  grid="1, 0"/>
+		<ingredient name="oldWood" count="1"  grid="-1, 1"/>
+		<ingredient name="oldWood" count="1"  grid="0, 1"/>
+		<ingredient name="oldWood" count="1"  grid="1, 1"/>
+	</recipe>
+	
+	<recipe name="railingMetal" count="4" scrapable="False" craft_time="15">
+		<ingredient name="shortMetalPipe" count="1"  grid="-1, -1"/>
+		<ingredient name="shortMetalPipe" count="1"  grid="0, -1"/>
+		<ingredient name="shortMetalPipe" count="1"  grid="1, -1"/>
+		<ingredient name="shortMetalPipe" count="1"  grid="-1, 0"/>
+		<ingredient name="shortMetalPipe" count="1"  grid="0, 0"/>
+		<ingredient name="shortMetalPipe" count="1"  grid="1, 0"/>
+		<ingredient name="scrapIron" count="1"  grid="-1, 1"/>
+		<ingredient name="scrapIron" count="1"  grid="0, 1"/>
+		<ingredient name="scrapIron" count="1"  grid="1, 1"/>
+	</recipe>
+	
+	<recipe name="railingWoodWhite" count="4" scrapable="False" craft_time="15">
+		<ingredient name="stick" count="1"  grid="-1, -1"/>
+		<ingredient name="stick" count="1"  grid="0, -1"/>
+		<ingredient name="stick" count="1"  grid="1, -1"/>
+		<ingredient name="stick" count="1"  grid="-1, 0"/>
+		<ingredient name="stick" count="1"  grid="0, 0"/>
+		<ingredient name="stick" count="1"  grid="1, 0"/>
+		<ingredient name="trunkBirch" count="1"  grid="-1, 1"/>
+		<ingredient name="trunkBirch" count="1"  grid="0, 1"/>
+		<ingredient name="trunkBirch" count="1"  grid="1, 1"/>
+	</recipe>
+	
+	<recipe name="whitePicketFence" count="6" scrapable="False" craft_time="15">
+		<ingredient name="stick" count="1"  grid="-2, -1"/>
+		<ingredient name="stick" count="1"  grid="0, -1"/>
+		<ingredient name="stick" count="1"  grid="2, -1"/>
+		<ingredient name="stick" count="1"  grid="-2, 0"/>
+		<ingredient name="stick" count="1"  grid="0, 0"/>
+		<ingredient name="stick" count="1"  grid="2, 0"/>
+		<ingredient name="trunkBirch" count="1"  grid="-2, 1"/>
+		<ingredient name="trunkBirch" count="1"  grid="-1, 1"/>
+		<ingredient name="trunkBirch" count="1"  grid="0, 1"/>
+		<ingredient name="trunkBirch" count="1"  grid="1, 1"/>
+		<ingredient name="trunkBirch" count="1"  grid="2, 1"/>
+	</recipe>
+	
+	<recipe name="oven" count="1" scrapable="False" craft_time="30">
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="0, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 0"/>
+		<ingredient name="cookingGrill" count="1"  grid="0, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="0, 1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 1"/>
+	</recipe>	
+	
+	<recipe name="fridge" count="1" scrapable="False" craft_time="30">
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="0, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 0"/>
+		<ingredient name="clayLump" count="1"  grid="0, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 1"/>
+		<ingredient name="clayLump" count="1"  grid="0, 1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 2"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="0, 2"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 2"/>
+	</recipe>
+	
+	<recipe name="glassIndustrial" count="2" scrapable="False" craft_time="15">
+		<ingredient name="glass" count="1"  grid="-1, -1"/>
+		<ingredient name="shortMetalPipe" count="1"  grid="0, -1"/>
+		<ingredient name="glass" count="1"  grid="1, -1"/>
+		<ingredient name="shortMetalPipe" count="1"  grid="-1, 0"/>
+		<ingredient name="glass" count="1"  grid="0, 0"/>
+		<ingredient name="shortMetalPipe" count="1"  grid="1, 0"/>
+		<ingredient name="glass" count="1"  grid="-1, 1"/>
+		<ingredient name="shortMetalPipe" count="1"  grid="0, 1"/>
+		<ingredient name="glass" count="1"  grid="1, 1"/>
+	</recipe>
+	
+	<recipe name="desk01" count="1" scrapable="False" craft_time="30">
+		<ingredient name="thinPlanks" count="1"  grid="-1, -1"/>
+		<ingredient name="thinPlanks" count="1"  grid="0, -1"/>
+		<ingredient name="thinPlanks" count="1"  grid="1, -1"/>
+		<ingredient name="planks" count="1"  grid="-1, 0"/>
+		<ingredient name="planks" count="1"  grid="1, 0"/>
+	</recipe>
+	
+	<recipe name="officeChair01" count="1" scrapable="False" craft_time="30">
+		<ingredient name="leather" count="1"  grid="-1, -1"/>
+		<ingredient name="leather" count="1"  grid="1, -1"/>
+		<ingredient name="leather" count="1"  grid="-1, 0"/>
+		<ingredient name="leather" count="1"  grid="0, 0"/>
+		<ingredient name="leather" count="1"  grid="1, 0"/>
+		<ingredient name="stick" count="1"  grid="-1, 1"/>
+		<ingredient name="stick" count="1"  grid="0, 1"/>
+		<ingredient name="stick" count="1"  grid="1, 1"/>
+	</recipe>
+	
+	<recipe name="bed02_1" count="1" scrapable="False" craft_time="30">
+		<ingredient name="cloth" count="1"  grid="-2, -1"/>
+		<ingredient name="cloth" count="1"  grid="-2, 0"/>
+		<ingredient name="cloth" count="1"  grid="-1, 0"/>
+		<ingredient name="cloth" count="1"  grid="0, 0"/>
+		<ingredient name="thinPlanks" count="1"  grid="-2, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="-1, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="0, 1"/>
+	</recipe>
+	
+	<recipe name="bed02_2" count="1" scrapable="False" craft_time="30">
+		<ingredient name="cloth" count="1"  grid="2, -1"/>
+		<ingredient name="cloth" count="1"  grid="0, 0"/>
+		<ingredient name="cloth" count="1"  grid="1, 0"/>
+		<ingredient name="cloth" count="1"  grid="2, 0"/>
+		<ingredient name="thinPlanks" count="1"  grid="0, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="1, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="2, 1"/>
+	</recipe>
+	
+	<recipe name="bed02_3" count="1" scrapable="False" craft_time="30">
+		<ingredient name="cloth" count="1"  grid="-2, 0"/>
+		<ingredient name="cloth" count="1"  grid="-1, 0"/>
+		<ingredient name="cloth" count="1"  grid="0, 0"/>
+		<ingredient name="thinPlanks" count="1"  grid="-2, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="-1, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="0, 1"/>
+	</recipe>
+	
+	<recipe name="bed02_4" count="1" scrapable="False" craft_time="30">
+		<ingredient name="cloth" count="1"  grid="0, 0"/>
+		<ingredient name="cloth" count="1"  grid="1, 0"/>
+		<ingredient name="cloth" count="1"  grid="2, 0"/>
+		<ingredient name="thinPlanks" count="1"  grid="0, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="1, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="2, 1"/>
+	</recipe>
+	
+	<recipe name="endTable" count="1" scrapable="False" craft_time="30">		
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="0, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 0"/>
+		<ingredient name="thinPlanks" count="1"  grid="-1, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="0, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="1, 1"/>
+	</recipe>
+	
+	<recipe name="endTableLamp" count="1" scrapable="False" craft_time="30">		
+		<ingredient name="torch" count="1"  grid="0, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="0, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 0"/>
+		<ingredient name="thinPlanks" count="1"  grid="-1, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="0, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="1, 1"/>
+	</recipe>
+	
+	<recipe name="ingotCopper" count="1" scrapable="False" craft_time="30">		
+		<ingredient name="ingotIron" count="1"  grid="0, 0"/>
+		<ingredient name="ingotBrass" count="1"  grid="1, 0"/>
+	</recipe>
+	
+	<recipe name="ingotAluminum" count="1" scrapable="False" craft_time="30">		
+		<ingredient name="ingotIron" count="1"  grid="0, 0"/>
+		<ingredient name="ingotLead" count="1"  grid="1, 0"/>
+	</recipe>
+	
+	<recipe name="scrapTungsten" count="1" scrapable="False" craft_time="30">		
+		<ingredient name="ingotAluminum" count="1"  grid="0, 0"/>
+		<ingredient name="ingotCopper" count="1"  grid="1, 0"/>
+	</recipe>
+	
+	<recipe name="doorTungsten" count="1" scrapable="False" craft_time="120">
+		<ingredient name="scrapTungsten" count="1" grid="-1, -2"/>
+        <ingredient name="scrapTungsten" count="1" grid="0, -2"/>
+        <ingredient name="scrapTungsten" count="1" grid="-1, -1"/>
+        <ingredient name="scrapTungsten" count="1" grid="0, -1"/>
+        <ingredient name="scrapTungsten" count="1" grid="-1, 0"/>
+        <ingredient name="scrapTungsten" count="1" grid="0, 0"/>
+        <ingredient name="scrapTungsten" count="1" grid="-1, 1"/>
+        <ingredient name="scrapTungsten" count="1" grid="0, 1"/>
+	</recipe>
+	
+	<recipe name="woodenBow" count="1" scrapable="False" craft_time="15">
+		<ingredient name="stick" count="1"  grid="0, -2"/>
+		<ingredient name="yuccaFibers" count="1"  grid="1, -2"/>
+		<ingredient name="stick" count="1"  grid="-1, -1"/>
+		<ingredient name="yuccaFibers" count="1"  grid="1, -1"/>
+		<ingredient name="stick" count="1"  grid="-1, 0"/>
+		<ingredient name="yuccaFibers" count="1"  grid="1, 0"/>
+		<ingredient name="stick" count="1"  grid="-1, 1"/>
+		<ingredient name="yuccaFibers" count="1"  grid="1, 1"/>
+		<ingredient name="stick" count="1"  grid="0, 2"/>
+		<ingredient name="yuccaFibers" count="1"  grid="1, 2"/>
+	</recipe>
+	
+	<recipe name="arrow" count="1" scrapable="False" craft_time="1">
+		<ingredient name="rockSmall" count="1"  grid="2, -2"/>
+		<ingredient name="stick" count="1"  grid="1, -1"/>
+		<ingredient name="stick" count="1"  grid="0, 0"/>
+		<ingredient name="feather" count="1"  grid="-1, 1"/>
+	</recipe>
+	
+	<recipe name="fridgeBottom" count="1" scrapable="False" craft_time="30">
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="0, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 0"/>
+		<ingredient name="snow" count="1"  grid="0, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 1"/>
+		<ingredient name="clayLump" count="1"  grid="0, 1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 2"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="0, 2"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 2"/>
+	</recipe>
+	
+	<recipe name="fridgeTop" count="1" scrapable="False" craft_time="30">
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, -2"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="0, -2"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, -2"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, -1"/>
+		<ingredient name="snow" count="1"  grid="0, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 0"/>
+		<ingredient name="clayLump" count="1"  grid="0, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="0, 1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 1"/>
+	</recipe>
+	
+	<recipe name="cabinetOldBottom" count="1" scrapable="False" craft_time="30">
+		<ingredient name="thinPlanks" count="1"  grid="-1, -1"/>
+		<ingredient name="clayLump" count="1"  grid="0, -1"/>
+		<ingredient name="thinPlanks" count="1"  grid="1, -1"/>
+		<ingredient name="shortMetalPipe" count="1"  grid="-1, 0"/>
+		<ingredient name="thinPlanks" count="1"  grid="0, 0"/>
+		<ingredient name="shortMetalPipe" count="1"  grid="1, 0"/>
+		<ingredient name="thinPlanks" count="1"  grid="-1, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="0, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="1, 1"/>
+	</recipe>
+	
+	<recipe name="cabinetOldTop" count="1" scrapable="False" craft_time="30">
+		<ingredient name="thinPlanks" count="1"  grid="-1, -1"/>
+		<ingredient name="thinPlanks" count="1"  grid="0, -1"/>
+		<ingredient name="thinPlanks" count="1"  grid="1, -1"/>
+		<ingredient name="shortMetalPipe" count="1"  grid="-1, 0"/>
+		<ingredient name="thinPlanks" count="1"  grid="0, 0"/>
+		<ingredient name="shortMetalPipe" count="1"  grid="1, 0"/>
+		<ingredient name="thinPlanks" count="1"  grid="-1, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="0, 1"/>
+		<ingredient name="thinPlanks" count="1"  grid="1, 1"/>
+	</recipe>
+	
+	<recipe name="wallOven" count="1" scrapable="False" craft_time="30">
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, -1"/>
+		<ingredient name="clayLump" count="1"  grid="0, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, -1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 0"/>
+		<ingredient name="cookingGrill" count="1"  grid="0, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 0"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="-1, 1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="0, 1"/>
+		<ingredient name="thinMetalPlate" count="1"  grid="1, 1"/>
+	</recipe>
+	
+    <recipe name="tubeHalfCon" count="6" scrapable="False" craft_time="15">
+        <ingredient name="concrete" count="1"  grid="0, -1"/>        
+        <ingredient name="concrete" count="1"  grid="0, 0"/>
+        <ingredient name="concrete" count="1"  grid="0, 1"/>
+    </recipe>
+
+    <recipe name="tubeCon" count="6" scrapable="False" craft_time="30">
+        <ingredient name="concrete" count="1"  grid="0, -1"/>
+        <ingredient name="concrete" count="1"  grid="1, -1"/>
+        <ingredient name="concrete" count="1"  grid="0, 0"/>
+        <ingredient name="concrete" count="1"  grid="1, 0"/>
+        <ingredient name="concrete" count="1"  grid="0, 1"/>
+        <ingredient name="concrete" count="1"  grid="1, 1"/>
+    </recipe>
+
+    <recipe name="metalRivet" count="6" scrapable="False" craft_time="30">
+        <ingredient name="ironWall" count="1"  grid="-1, -1"/>
+        <ingredient name="shortMetalPipe" count="1"  grid="0, -1"/>
+        <ingredient name="ironWall" count="1"  grid="1, -1"/>
+        <ingredient name="shortMetalPipe" count="1"  grid="-1, 0"/>
+        <ingredient name="ironWall" count="1"  grid="0, 0"/>
+        <ingredient name="shortMetalPipe" count="1"  grid="1, 0"/>
+        <ingredient name="ironWall" count="1"  grid="-1, 1"/>
+        <ingredient name="shortMetalPipe" count="1"  grid="0, 1"/>
+        <ingredient name="ironWall" count="1"  grid="1, 1"/>
+    </recipe>
+
+    <recipe name="wedgeMetalRivet" count="6" scrapable="False" craft_time="15">
+        <ingredient name="metalRivet" count="1"  grid="0, 0"/>
+        <ingredient name="metalRivet" count="1"  grid="-1, 1"/>
+        <ingredient name="metalRivet" count="1"  grid="0, 1"/>
+    </recipe>
+
+	<!--
+	<recipe name="" count="1" scrapable="False" craft_time="30">
+		<ingredient name="" count="1"  grid="-1, -1"/>
+		<ingredient name="" count="1"  grid="0, -1"/>
+		<ingredient name="" count="1"  grid="1, -1"/>
+		<ingredient name="" count="1"  grid="-1, 0"/>
+		<ingredient name="" count="1"  grid="0, 0"/>
+		<ingredient name="" count="1"  grid="1, 0"/>
+		<ingredient name="" count="1"  grid="-1, 1"/>
+		<ingredient name="" count="1"  grid="0, 1"/>
+		<ingredient name="" count="1"  grid="1, 1"/>
+	</recipe>
+	-->
 
 </recipes>

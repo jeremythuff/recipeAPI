@@ -109,7 +109,7 @@ $(document).ready(function() {
 
   $('.pagination').on('click', '.paginationBtn', function() {
     var model = $('.active').attr("data-model");
-    var offsetresults = $(this).attr('data-offset');
+    var offsetresults = parseInt($(this).attr('data-offset'));
     displayResults(model, offsetresults)
   });
 
@@ -139,7 +139,7 @@ $(document).ready(function() {
     $(".tableBody").html("");
     $(".tableHead").html(headerTemplate);
     
-    for(var i=offsetresults;(i<currentResults.length);i++) {
+    for(var i=offsetresults;(i<(offsetresults+numPerPage))&&(i<currentResults.length);i++) {
       var response = currentResults[i];
       var area = typeof(response.craft_area)==='object' ? "none" : response.craft_area;
       var tool = typeof(response.craft_tool)==='object' ? "none" : response.craft_tool; 
@@ -154,7 +154,7 @@ $(document).ready(function() {
     var numPages = Math.ceil(response.length/numPerPage);
     $('.pagination').html('');
     
-    for(var i=1;i<numPages;i++) {
+    for(var i=1;(i<=numPages)&&(numPages>1);i++) {
         var state = ((i-1)*numPerPage) == offsetresults ? "activePage": "";
         $(".pagination").append("<span style='margin-right:10px;cursor:pointer;' class='paginationBtn "+state+"' data-offset='"+((i-1)*numPerPage)+"''></span>");
     }
