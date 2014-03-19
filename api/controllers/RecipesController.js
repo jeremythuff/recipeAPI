@@ -19,13 +19,7 @@
 var fs = require('fs'),
     xml2js = require('xml2js'),
     parseXML = new xml2js.Parser(),
-    JSFtp = require('jsftp'),
-    ftp = new JSFtp({
-      host: "162.210.198.161",
-      port: 8821, // defaults to 21
-      user: "", // defaults to "anonymous"
-      pass: "" // defaults to "@anonymous"
-    });
+    JSFtp = require('jsftp')
 
 module.exports = {
     
@@ -59,11 +53,44 @@ module.exports = {
   },
 
   updateRecipes: function (req, res) {
-    ModelService.clearAll(Recipes);
-    ModelService.clearAll(Ingredients);
-    fs.readFile("assets/data/recipes.xml", function(err, data) {
-        console.log(err, data);
-        parseXML.parseString(data, function (err, result) {
+    if((req.param("host")==="")||(req.param("port")==="")||(req.param("user")==="")||(req.param("pass")==="")) {
+      console.log("blank fields");
+      return res.json({"message": "error", "data": "Not all fields were completed!"});
+    }
+    
+    ftp = new JSFtp({
+      host: req.param("host"),
+      port: req.param("port"), // defaults to 21
+      user: req.param("user"), // defaults to "anonymous"
+      pass: req.param("pass") // defaults to "@anonymous"
+    });
+
+
+    ftp.get('/162.210.198.161_25440/7DaysToDie-Alpha/Data/Config/recipes.xml', '/assets/data/recipes.xml', function(hadErr) {
+      
+      var timout = setInterval(function(){
+        var err = "No response from FTP Server";
+        console.log(err);
+        return res.json({"message": "error", "data": err});
+      },10000);
+      
+      if (hadErr) {
+        console.log(err);
+        return res.json({"message": "error", "data": err});
+      } else {
+        timout = null;
+        console.log('File copied successfully!');
+
+        ModelService.clearAll(Recipes);
+        ModelService.clearAll(Ingredients);
+        
+        fs.readFile("assets/data/recipes.xml", function(err, data) {
+          if(err) {
+            console.log(err);
+            return res.json({"message": "error", "data": err});
+          }
+
+          parseXML.parseString(data, function (err, result) {
             var recipes = result.recipes.recipe;
             for(i=0;i<recipes.length;i++) {
               
@@ -98,6 +125,7 @@ module.exports = {
                     .done(function(err, user) {
                       if (err) {
                         console.log(err);
+                        return res.json({"message": "error", "data": err});
                       } else {
                         console.log(ingredient.name + " was added to the Ingredients");
                       }
@@ -106,12 +134,14 @@ module.exports = {
                     Ingredients.findOne({name: ingredient.name}, function(err, results) {
                       if (err) {
                         console.log(err);
+                        return res.json({"message": "error", "data": err});
                       } else {
                         if(results['usedIn'].indexOf(recipe.name)===-1) {
                           results['usedIn'].push(recipe.name);
                           results.save(function(err) {
                             if (err) {
                               console.log(err);
+                              return res.json({"message": "error", "data": err});
                             } else {
                               console.log(ingredient.name + " was udated.");
                             }
@@ -136,18 +166,19 @@ module.exports = {
                 "ingredients": ingredients
               }).done(function(err, user) {
                 if (err) {
-                  return console.log(err);
+                  console.log(err);
+                  return res.json({"message": "error", "data": err});
                 } else {
                    console.log("Just added the recipe for " + recipe.name);
                 }
-              });
-
-             
+              });   
             } 
               
             console.log('Done');
-            return res.send("Success!");
+            return res.json({"message": "Update Success!"});
+          });
         });
+      }
     });
   },
 

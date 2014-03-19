@@ -38,7 +38,9 @@ module.exports.routes = {
 
   '/recipe/:name': 'RecipesController.getRecipeByName', // return view
 
-  '/recipes/updateAll': 'RecipesController.updateRecipes', // return view
+  '/recipes/updateAll': {
+    view: 'recipes/update'
+  },
 
   '/api/:JSONorXML/recipes': {
       controller    : 'recipesController',

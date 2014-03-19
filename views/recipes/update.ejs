@@ -1,0 +1,38 @@
+<style>
+.container {
+  width: 35%;  
+}
+
+form input {
+  margin-bottom: 15px;  
+}
+
+.loader {
+
+  display: none;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.messages {
+  width: 100%;
+  margin-bottom: 25px;
+  display: none;
+}
+</style>
+
+<div class="container">
+  <form class="form-signin updateForm" role="form">
+    <fieldset class="fieldset">
+      <h2 class="form-signin-heading">FTP Information</h2>
+      <input type="text" class="form-control host" placeholder="Host" required="" autofocus="">
+      <input type="text" class="form-control port" placeholder=":port" required="">
+      <input type="text" class="form-control user" placeholder="User" required="">
+      <input type="password" class="form-control pass" placeholder="Password" required="">
+    </fieldset>
+    <div class="messages">
+    </div>
+    <img class="loader" src="/images/loader.gif">
+    <button class="btn btn-lg btn-primary btn-block updateFormSubmit" type="submit">Update</button>
+  </form>
+</div> 

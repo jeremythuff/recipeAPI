@@ -37,6 +37,46 @@
     // when the browser establishes its socket connection to 
     // the Sails.js server.
     ///////////////////////////////////////////////////////////
+   $(".updateFormSubmit").on("click", function(e) {
+      e.preventDefault();
+      var $this = $(this);
+      $('.fieldset').css("display", "none");
+      $(".loader").css("display", "block");
+      $this.prop('disabled', true);
+      var host = $(".updateForm .host").val();
+      var port = $(".updateForm .port").val();
+      var user = $(".updateForm .user").val();
+      var pass = $(".updateForm .pass").val();
+      $(".updateForm .host").val("");
+      $(".updateForm .port").val("");
+      $(".updateForm .user").val("");
+      $(".updateForm .pass").val("");
+      
+      socket.get('/recipes/updateRecipes?host='+host+'&port='+port+'&user='+user+'pass='+pass, function (response) {
+        $(".loader").css("display", "none");
+        $this.prop('disabled', false);
+        if(response.message === "error") {
+          $(".messages").html("Uh oh, something went wrong :(").fadeIn(500);
+            console.log(response.data);
+            $this.prop('disabled', false);
+            $this.html("Try Again!");
+            $this.on("click", function(){
+              window.location = "/recipes/updateAll";
+            });
+        } else {
+          $(".messages").html("Update Succesful!").fadeIn(500); 
+          $this.prop('disabled', false);
+          $this.html("Check it out!");
+          $this.on("click", function(){
+            window.location = "/";
+          }); 
+        }
+        
+        
+      });
+    });
+
+
     log(
         'Socket is now connected and globally accessible as `socket`.\n' + 
         'e.g. to send a GET request to Sails, try \n' + 
@@ -70,9 +110,14 @@
 
 );
 
+
+
+
 $(document).ready(function() {
   
 
+
+//index
 
   //initilize
   var numPerPage = 20;
