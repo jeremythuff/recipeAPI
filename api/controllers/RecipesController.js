@@ -18,7 +18,14 @@
 //requires
 var fs = require('fs'),
     xml2js = require('xml2js'),
-    parseXML = new xml2js.Parser();
+    parseXML = new xml2js.Parser(),
+    JSFtp = require('jsftp'),
+    ftp = new JSFtp({
+      host: "162.210.198.161",
+      port: 8821, // defaults to 21
+      user: "", // defaults to "anonymous"
+      pass: "" // defaults to "@anonymous"
+    });
 
 module.exports = {
     
