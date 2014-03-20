@@ -37,43 +37,40 @@
     // when the browser establishes its socket connection to 
     // the Sails.js server.
     ///////////////////////////////////////////////////////////
-   $(".updateFormSubmit").on("click", function(e) {
-      e.preventDefault();
-      var $this = $(this);
-      $('.fieldset').css("display", "none");
-      $(".loader").css("display", "block");
-      $this.prop('disabled', true);
-      var host = $(".updateForm .host").val();
-      var port = $(".updateForm .port").val();
-      var user = $(".updateForm .user").val();
-      var pass = $(".updateForm .pass").val();
-      $(".updateForm .host").val("");
-      $(".updateForm .port").val("");
-      $(".updateForm .user").val("");
-      $(".updateForm .pass").val("");
+    
+    getAll(model);
+
+    $(".menuBtn").on("click", function() {
+      model = $(this).attr("data-model");
+      $(".menuBtn").removeClass("active");
+      $(this).addClass("active");
+      $(".sub-header").html(model.charAt(0).toUpperCase() + model.slice(1));
+      $(".searchBox").val("");
+      getAll(model)
+
+    });
+
+    $(".searchBox").keyup(function(e) {
+      if(e.keyCode === 13) e.preventDefault();
       
-      socket.get('/recipes/updateRecipes?host='+host+'&port='+port+'&user='+user+'pass='+pass, function (response) {
-        $(".loader").css("display", "none");
-        $this.prop('disabled', false);
-        if(response.message === "error") {
-          $(".messages").html("Uh oh, something went wrong :(").fadeIn(500);
-            console.log(response.data);
-            $this.prop('disabled', false);
-            $this.html("Try Again!");
-            $this.on("click", function(){
-              window.location = "/recipes/updateAll";
-            });
-        } else {
-          $(".messages").html("Update Succesful!").fadeIn(500); 
-          $this.prop('disabled', false);
-          $this.html("Check it out!");
-          $this.on("click", function(){
-            window.location = "/";
-          }); 
-        }
-        
-        
-      });
+      var query = $(this).val();
+      
+      if(query == '') {
+        getAll($('.active').attr('data-model'));
+      } else {
+        searchByName(query);
+      }
+    });
+
+    $('.pagination').on('click', '.paginationBtn', function() {
+      var model = $('.active').attr("data-model");
+      var offsetresults = parseInt($(this).attr('data-offset'));
+      displayResults(model, offsetresults)
+    });
+
+    //THE EVENT LISTENER FOR THE UPDATE RECIPES FORM
+    $(".updateFormSubmit").on("click", function(e) {
+      updateRecipes(e, $(this));
     });
 
 
@@ -100,65 +97,16 @@
       console.log.apply(console, arguments);
     }
   }
-  
 
-})(
-
-  // In case you're wrapping socket.io to prevent pollution of the global namespace,
-  // you can replace `window.io` with your own `io` here:
-  window.io
-
-);
-
-
-
-
-$(document).ready(function() {
-  
-
-
-//index
-
+  /////////////
+  //FUNCTIONS//
+  /////////////
   //initilize
   var numPerPage = 20;
   var offsetresults = 0; //set to active page
   var currentResults = {};
   var model = $(".active").attr("data-model");
 
-
-  getAll(model);
-
-  //listeners
-  $(".menuBtn").on("click", function() {
-    model = $(this).attr("data-model");
-
-    $(".menuBtn").removeClass("active");
-    $(this).addClass("active");
-    $(".sub-header").html(model.charAt(0).toUpperCase() + model.slice(1));
-    $(".searchBox").val("");
-    getAll(model)
-
-  });
-
-  $(".searchBox").keyup(function(e) {
-    if(e.keyCode === 13) e.preventDefault();
-    
-    var query = $(this).val();
-    
-    if(query == '') {
-      getAll($('.active').attr('data-model'));
-    } else {
-      searchByName(query);
-    }
-  });
-
-  $('.pagination').on('click', '.paginationBtn', function() {
-    var model = $('.active').attr("data-model");
-    var offsetresults = parseInt($(this).attr('data-offset'));
-    displayResults(model, offsetresults)
-  });
-
-  //functions
   function searchByName(query) {
     var model = $(".active").attr("data-model");
     socket.get("/api/json/"+model+"/search?"+query, function (response) { 
@@ -222,5 +170,49 @@ $(document).ready(function() {
     return html;
   }
 
+  function updateRecipes(e, btn) {
+    e.preventDefault();
+    var $this = $(btn);
+    $('.fieldset').css("display", "none");
+    $(".loader").css("display", "block");
+    $this.prop('disabled', true);
+    var host = $(".updateForm .host").val();
+    var port = $(".updateForm .port").val();
+    var user = $(".updateForm .user").val();
+    var pass = $(".updateForm .pass").val();
+    $(".updateForm .host").val("");
+    $(".updateForm .port").val("");
+    $(".updateForm .user").val("");
+    $(".updateForm .pass").val("");
+    
+    socket.get('/recipes/updateRecipes?host='+host+'&port='+port+'&user='+user+'&pass='+pass, function (response) {
+      $(".loader").css("display", "none");
+      $this.prop('disabled', false);
+      if(response.message === "error") {
+        $(".messages").html("Uh oh, something went wrong :(").fadeIn(500);
+          console.log(response.data);
+          $this.prop('disabled', false);
+          $this.html("Try Again!");
+          $this.on("click", function(){
+            window.location = "/recipes/updateAll";
+          });
+      } else {
+        $(".messages").html("Update Succesful!").fadeIn(500); 
+        $this.prop('disabled', false);
+        $this.html("Check it out!");
+        $this.on("click", function(){
+          window.location = "/";
+        }); 
+      }
+      
+      
+    });
+  }
 
-});
+})(
+
+  // In case you're wrapping socket.io to prevent pollution of the global namespace,
+  // you can replace `window.io` with your own `io` here:
+  window.io
+
+);

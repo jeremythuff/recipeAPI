@@ -57,7 +57,7 @@ module.exports = {
       console.log("blank fields");
       return res.json({"message": "error", "data": "Not all fields were completed!"});
     }
-    
+
     ftp = new JSFtp({
       host: req.param("host"),
       port: req.param("port"), // defaults to 21
@@ -65,20 +65,20 @@ module.exports = {
       pass: req.param("pass") // defaults to "@anonymous"
     });
 
+    var timeOut = setInterval(function(){
+      var err = "No response from FTP Server";
+      console.log(err);
+      clearTimeout(timeOut);
+      return res.json({"message": "error", "data": err});
+    },10000);
 
-    ftp.get('/162.210.198.161_25440/7DaysToDie-Alpha/Data/Config/recipes.xml', '/assets/data/recipes.xml', function(hadErr) {
-      
-      var timout = setInterval(function(){
-        var err = "No response from FTP Server";
-        console.log(err);
-        return res.json({"message": "error", "data": err});
-      },10000);
-      
+    ftp.get('/162.210.198.161_25440/7DaysToDie-Alpha/Data/Config/recipes.xml', 'assets/data/recipes.xml', function(hadErr) {
+      clearTimeout(timeOut);
+    
       if (hadErr) {
         console.log(err);
         return res.json({"message": "error", "data": err});
       } else {
-        timout = null;
         console.log('File copied successfully!');
 
         ModelService.clearAll(Recipes);
